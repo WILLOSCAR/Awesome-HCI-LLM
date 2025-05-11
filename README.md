@@ -4,15 +4,16 @@ This repository is dedicated to the exploration of the most recent advancements 
 Given the potential overlap between LLM and Agent research, a precise categorization of papers into specific domains will, for now, be deferred. Instead, attention is placed on the contributions of each paper and the tags assigned to them. These tags have been selected to facilitate the indexing of related papers; although they may appear numerous, they serve to enhance navigation. It is acknowledged that the current tags are somewhat broad, and there is an intention to refine and reorganize them when possible for more precise indexing and retrieval.
 
 # Todo
-- [x] 1.Choose a record format (text or table), text is given priority. Tables can use GPT4o to generate the corresponding markdown format. **Decision:Text!!!**
+- [x] 1.Choose a record format (text or table), text is given priority. Tables can use GPT4o to generate the corresponding markdown format. 
 - [x] 2.Choose which fields are required  (title(including link), publication&year, date,version(v1), code, tags, etc.). Here are the examples. Subsequent dynamic adjustments can be made at any time.
   - **(Current Version) [publication&version year] title(link) [tags,xxx,xxx,et al.] [date (format:year.month)]**
   - Title(Star)	Venue Date Code Demo
   - Date	keywords	Institute	Paper	Publication
   - Example (TPAMI 2023) Multimodal Image Synthesis and Editing: A Survey and Taxonomy [v1(arXiv)](2021.12) ... [v5](2023.08)
   - Towards Tracing Factual Knowledge in Language Models Back to the Training Data. [pdf] [EMNLP 2022] [2022.5]
-- [ ] 3.Record related projects (Github, tutorials, official documentation, individual developers) in the project.md file.
+- [x] 3.Record related projects (Github, tutorials, official documentation, individual developers) in the project.md file.
 - [x] 4.Change to Table.
+- [ ] 5.Find a way to edit markdown table 
 
 # HCI
 
