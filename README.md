@@ -3,6 +3,8 @@ This repository is dedicated to the exploration of the most recent advancements 
 
 Given the potential overlap between LLM and Agent research, a precise categorization of papers into specific domains will, for now, be deferred. Instead, attention is placed on the contributions of each paper and the tags assigned to them. These tags have been selected to facilitate the indexing of related papers; although they may appear numerous, they serve to enhance navigation. It is acknowledged that the current tags are somewhat broad, and there is an intention to refine and reorganize them when possible for more precise indexing and retrieval.
 
+**[June 2025 Update]** This repository has now resumed regular updates. We will continue to track and compile the latest research findings in the fields of HCI, LLMs, and intelligent agents.
+
 # Todo
 - [x] 1.Choose a record format (text or table), text is given priority. Tables can use GPT4o to generate the corresponding markdown format. 
 - [x] 2.Choose which fields are required  (title(including link), publication&year, date,version(v1), code, tags, etc.). Here are the examples. Subsequent dynamic adjustments can be made at any time.
