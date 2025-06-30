@@ -1,5 +1,5 @@
 # awesome-hci-llm-agent-paper (Since 2021)
-This repository is dedicated to the exploration of the most recent advancements in Human-Computer Interaction (HCI), encompassing Awesome-HCI (Ubiquitous, LLM, MLLM, Agent, RAG, Embodied-AI) and related research areas. The primary focus is on reviewing cutting-edge research papers, followed by an examination of seminal works in the field.
+This repository is dedicated to the exploration of the most recent advancements in Human-Computer Interaction (HCI), encompassing Awesome-HCI (Ubiquitous, LLM, MLLM, Agent, RAG, Embodied-AI, RLHF) and related research areas. The primary focus is on reviewing cutting-edge research papers, followed by an examination of seminal works in the field.
 
 Given the potential overlap between LLM and Agent research, a precise categorization of papers into specific domains will, for now, be deferred. Instead, attention is placed on the contributions of each paper and the tags assigned to them. These tags have been selected to facilitate the indexing of related papers; although they may appear numerous, they serve to enhance navigation. It is acknowledged that the current tags are somewhat broad, and there is an intention to refine and reorganize them when possible for more precise indexing and retrieval.
 
