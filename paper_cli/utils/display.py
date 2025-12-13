@@ -72,16 +72,18 @@ def display_papers_table(
 def display_paper_detail(paper: "Paper") -> None:
     """显示单篇论文的详细信息。"""
     content = f"""[bold]Title:[/bold] {paper.title}
-[bold]Authors:[/bold] {paper.authors}
-[bold]Source:[/bold] {paper.source}
+[bold]Authors:[/bold] {paper.authors or 'N/A'}
+[bold]Source:[/bold] {paper.source or 'N/A'}
 [bold]Topic:[/bold] {paper.topic}
-[bold]Tags:[/bold] {paper.tag}
-[bold]Subjects:[/bold] {paper.subjects}
+[bold]Tags:[/bold] {paper.tag or 'N/A'}
+[bold]Subjects:[/bold] {paper.subjects or 'N/A'}
 [bold]Link:[/bold] {paper.link}
-[bold]Date:[/bold] {paper.date}"""
+[bold]Date:[/bold] {paper.date or 'N/A'}
+[bold]DOI:[/bold] {paper.doi or 'N/A'}
+[bold]Journal Ref:[/bold] {paper.journal_ref or 'N/A'}"""
 
     if paper.additional_info:
-        content += f"\n[bold]Notes:[/bold] {paper.additional_info}"
+        content += f"\n[bold]Comment/Notes:[/bold] {paper.additional_info}"
 
     console.print(Panel(content, title="Paper Details", expand=False))
 

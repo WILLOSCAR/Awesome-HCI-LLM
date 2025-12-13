@@ -12,7 +12,7 @@ pip install -e .
 ## Quick Start
 
 ```bash
-# Add paper from arXiv
+# Add paper from arXiv (auto-fetch metadata)
 paper add https://arxiv.org/abs/2312.00752 LLM -t "llm, mamba"
 
 # Add paper from ACM DL
@@ -27,6 +27,13 @@ paper search transformer
 # Show stats
 paper stats
 ```
+
+## What's New in Current Version
+
+✓ **Smart Source Column**: Automatically displays arXiv version info in format `arXiv(v1) 2024 (ICLR 2024)`
+✓ **All Fields Visible**: DOI, Journal Ref, and Comment fields now shown in CLI preview
+✓ **arXiv Priority**: Even if Source is set to conference name, arXiv info is recovered from Link
+✓ **Version Tracking**: Paper versions (v1, v2, v3) automatically extracted and displayed
 
 ---
 
@@ -286,20 +293,54 @@ paper preview --diff
 
 ---
 
+## README Table Format
+
+The generated README.md uses a 7-column Markdown table format:
+
+```markdown
+| Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
+```
+
+### Source Column Examples
+
+The Source column intelligently displays arXiv information with conference details:
+
+- **arXiv + Conference**: `arXiv(v1) 2024 (ICLR 2024)`
+- **arXiv Only**: `arXiv(v2) 2023`
+- **Non-arXiv**: `Ubicomp 2023`
+
+**Smart Detection**: If Source is set to "ICLR 2024" but Link contains arxiv.org, the tool automatically extracts version info and displays as `arXiv(v1) 2024 (ICLR 2024)`.
+
+### Column Details
+
+- **Source**: Shows arXiv version (priority) or conference name
+- **Title (Link)**: Clickable title, preferably linking to arXiv
+- **Authors**: First author + "et al." (simplified for readability)
+- **Tag**: User-defined tags (comma-separated)
+- **Subjects**: arXiv categories (e.g., cs.AI, cs.CL)
+- **Additional info**: Comments from arXiv API or manual notes
+- **Date**: Publication date (YYYY.MM format)
+
+---
+
 ## Tips
 
 - All commands support `--help`
 - `paper search` → `paper s`
 - `paper list` → `paper ls`
 - Default looks for `papers.csv` in current directory, use `--repo` to specify path
+- See `FIELDS_GUIDE.md` for detailed field usage and best practices
 
 ---
 
 ## Files
 
 ```
-papers.csv          # Paper data
-README.md           # Auto-updated display page
+papers.csv          # Paper data (11 columns including DOI, Journal_Ref)
+README.md           # Auto-updated display page (7 columns)
+FIELDS_GUIDE.md     # Field usage guide and workflows
+USAGE.md            # This file - command reference
+TODO.md             # Development roadmap
 paper_cli/          # CLI source code
 pyproject.toml      # Project config
 ```

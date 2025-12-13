@@ -18,15 +18,43 @@ Given the potential overlap between LLM and Agent research, a precise categoriza
 - [x] 5.Find a way to edit markdown table. (Solved by creating a script to automatically generate tables from papers.csv) 
 - [x] 6.Automate arXiv paper entry by fetching metadata (authors, subjects, etc.) from the arXiv API.
 - [x] 7.Refine table display format (e.g., author list, column visibility) for better readability.
+- [x] 8.Smart Source column format - prioritize arXiv version information (`arXiv(v1) 2024 (ICLR 2024)`).
+
+## Documentation
+
+- **[USAGE.md](USAGE.md)** - Complete CLI command reference and usage examples
+- **[FIELDS_GUIDE.md](FIELDS_GUIDE.md)** - Field usage guide and paper lifecycle workflows
+- **[FORMAT_EXAMPLES.md](FORMAT_EXAMPLES.md)** - Real examples of paper format in CSV and README
+- **[TODO.md](TODO.md)** - Development roadmap and feature tracking
+
+## Quick Start
+
+```bash
+# Install CLI tool
+pip install -e .
+
+# Add paper from arXiv (auto-fetch metadata)
+paper add 2312.00752 LLM -t "llm, mamba"
+
+# Search papers
+paper search transformer -t IMU
+
+# Show statistics
+paper stats
+```
+
+**Table Format**: The paper tables use 7 columns with smart formatting. Source column prioritizes arXiv version info (e.g., `arXiv(v1) 2024 (ICLR 2024)`), ensuring version tracking even when papers are published at conferences.
+
+---
 
 # HCI
 <!-- TABLE_START: HCI -->
 | Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
 |---|---|---|---|---|---|---|
-| CHI 2023 | [HOOV: Hand Out-Of-View Tracking for Proprioceptive Interaction using Inertial Sensing](https://arxiv.org/abs/2303.07016) | Paul Streli, et al. | IMU, VR, transformer | cs.HC, cs.CV, I.2; I.5; H.5 |  |  |
+| arXiv(v1) 2023 (CHI 2023) | [HOOV: Hand Out-Of-View Tracking for Proprioceptive Interaction using Inertial Sensing](https://arxiv.org/abs/2303.07016) | Paul Streli, et al. | IMU, VR, transformer | cs.HC, cs.CV, I.2; I.5; H.5 |  |  |
 | Ubicomp 2023 | [From 2D to 3D: Facilitating Single-Finger Mid-Air Typing on QWERTY Keyboards with Probabilistic Touch Modeling](https://dl.acm.org/doi/10.1145/3580829) |  | mid air, text entry, VR |  |  |  |
 | Ubicomp 2023 | [PrintShear: Shear Input Based on Fingerprint Deformation](https://dl.acm.org/doi/10.1145/3596257) |  | touch, finger input |  |  |  |
-| CHI 2023 | [IMUPoser: Full-Body Pose Estimation using IMUs in Phones, Watches, and Earbuds](https://arxiv.org/abs/2304.12518) | Vimal Mollyn, et al. | IMU, pose estimation, BiLSTM | cs.HC, cs.CV |  |  |
+| arXiv(v1) 2023 (CHI 2023) | [IMUPoser: Full-Body Pose Estimation using IMUs in Phones, Watches, and Earbuds](https://arxiv.org/abs/2304.12518) | Vimal Mollyn, et al. | IMU, pose estimation, BiLSTM | cs.HC, cs.CV |  |  |
 | arXiv(v1) 2024 | [IMUSIC: IMU-based Facial Expression Capture](https://arxiv.org/abs/2402.03944) | Youjia Wang, et al. | IMU, generation, simulate, transformer diffusion | cs.CV | code coming soon ([link](https://sites.google.com/view/projectpage-imusic)) | 2024.02 |
 | Ubicomp 2023 | [I Know Your Intent: Graph-enhanced Intent-aware User Device Interaction Prediction via Contrastive Learning](https://dl.acm.org/doi/10.1145/3610906) |  | user device interaction, graph, attention, contrastive learning |  |  |  |
 | Ubicomp 2023 | [Synthetic Smartwatch IMU Data Generation from In-the-wild ASL Videos](https://dl.acm.org/doi/abs/10.1145/3596261) |  | IMU, synthetic, ASL recognition |  |  |  |
@@ -52,7 +80,7 @@ Given the potential overlap between LLM and Agent research, a precise categoriza
 | Ubicomp 2023 | [sUrban: Stable Prediction for Unseen Urban Data from Location-based Sensors](https://dl.acm.org/doi/abs/10.1145/3610877) |  | urban computing, location-based data, spatial-temporal prediction, out-of-distribution data |  |  |  |
 | Ubicomp 2023 | [Spectral-Loc: Indoor Localization Using Light Spectral Information](https://dl.acm.org/doi/10.1145/3580878) |  | indoor localization, spectral information, ambient light |  |  |  |
 | arXiv(v2) 2024 | [IMUOptimize: A Data-Driven Approach to Optimal IMU Placement for Human Pose Estimation with Transformer Architecture](https://arxiv.org/abs/2402.08923) | Varun Ramani, et al. | IMU, transformer, interpretability, data driven, time series | cs.LG |  | 2024.02 |
-| CVPR 2024 | [Dynamic Inertial Poser (DynaIP): Part-Based Motion Dynamics Learning for Enhanced Human Pose Estimation with Sparse Inertial Sensors](https://arxiv.org/abs/2312.02196) | Yu Zhang, et al. | IMU, sparse inertial sensors | cs.CV |  | 2024.03 |
+| arXiv(v1) 2024 (CVPR 2024) | [Dynamic Inertial Poser (DynaIP): Part-Based Motion Dynamics Learning for Enhanced Human Pose Estimation with Sparse Inertial Sensors](https://arxiv.org/abs/2312.02196) | Yu Zhang, et al. | IMU, sparse inertial sensors | cs.CV |  | 2024.03 |
 | Ubicomp 2023 | [N-euro Predictor: A Neural Network Approach for Smoothing and Predicting Motion Trajectory](https://dl.acm.org/doi/10.1145/3610884) |  | vision-based interactions, motion-to-photon latency, motion prediction, neural network, perceived jitter and lag |  |  |  |
 | Ubicomp 2023 | [GC-Loc: A Graph Attention Based Framework for Collaborative Indoor Localization Using Infrastructure-free Signals](https://dl.acm.org/doi/10.1145/3569495) |  | collaborative indoor localization, graph neural network, geomagnetism |  |  |  |
 | arXiv(v5) 2024 | [Evaluating Human-Language Model Interaction](https://arxiv.org/abs/2212.09746) | Mina Lee, et al. | LM, human-centered, evaluation | cs.CL |  |  |
@@ -79,7 +107,7 @@ Given the potential overlap between LLM and Agent research, a precise categoriza
 | Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
 |---|---|---|---|---|---|---|
 | arXiv(v1) 2023 | [Multimodal Foundation Models: From Specialists to General-Purpose Assistants](https://arxiv.org/abs/2309.10020) | Chunyuan Li, et al. | survey | cs.CV, cs.CL |  | 2023.09 |
-| NIPS 2023 (NeurIPS 2023) | [Large Language Model as Attributed Training Data Generator: A Tale of Diversity and Bias](https://arxiv.org/abs/2306.15895) | Yue Yu, et al. | synthetic data generation | cs.CL, cs.AI, cs.LG |  | arXiv(v2) 2023.10 |
+| arXiv(v1) 2023 (NIPS 2023) | [Large Language Model as Attributed Training Data Generator: A Tale of Diversity and Bias](https://arxiv.org/abs/2306.15895) | Yue Yu, et al. | synthetic data generation | cs.CL, cs.AI, cs.LG |  | arXiv(v2) 2023.10 |
 | arXiv(v1) 2024 | [Design2Code: How Far Are We From Automating Front-End Engineering?](https://arxiv.org/abs/2403.03163) | Chenglei Si, et al. | llm, auto, google | cs.CL, cs.CV, cs.CY |  | 2024.03 |
 | arXiv(v2) 2023 | [The Good, The Bad, and Why: Unveiling Emotions in Generative AI](https://arxiv.org/abs/2312.11111) | Cheng Li, et al. | emotion, prompt, attack, decode | cs.AI, cs.CL, cs.HC | extension of Large language models understand and can be enhanced by emotional stimuli | 2023.12 |
 | arXiv(v1) 2024 | [Are You Being Tracked? Discover the Power of Zero-Shot Trajectory Tracing with LLMs!](https://arxiv.org/abs/2403.06201) | Huanqi Yang, et al. | iot, imu, cot, prompt | cs.CL, cs.AI, cs.HC, cs.LG |  | 2024.03 |
@@ -100,12 +128,12 @@ Given the potential overlap between LLM and Agent research, a precise categoriza
 <!-- TABLE_START: Agent -->
 | Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
 |---|---|---|---|---|---|---|
-| ICLR 2024 | [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](https://arxiv.org/abs/2308.00352) | Sirui Hong, et al. | autonomous system, SOP, multi-agent, framework | cs.AI, cs.MA |  |  |
+| arXiv(v1) 2024 (ICLR 2024) | [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](https://arxiv.org/abs/2308.00352) | Sirui Hong, et al. | autonomous system, SOP, multi-agent, framework | cs.AI, cs.MA |  |  |
 | arXiv(v1) 2024 | [DataDreamer: A Tool for Synthetic Data Generation and Reproducible LLM Workflows](https://arxiv.org/abs/2402.10379) | Ajay Patel, et al. | pipeline, liarbry, generation | cs.CL, cs.LG |  | 2024.02 |
 | arXiv(v2) 2023 | [MusicAgent: An AI Agent for Music Understanding and Generation with Large Language Models](https://arxiv.org/abs/2310.11954) | Dingyao Yu, et al. | pipeline | cs.CL, cs.MM, eess.AS |  | 2023.10 |
 | arXiv(v3) 2023 | [The Rise and Potential of Large Language Model Based Agents: A Survey](https://arxiv.org/abs/2309.07864) | Zhiheng Xi, et al. | survey, [github paper list](https://github.com/WooooDyy/LLM-Agent-Paper-List) | cs.AI, cs.CL |  | 2023.09 |
-| NIPS 2023 | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | Guohao Li, et al. | role play, autonomous, user&assistant | cs.AI, cs.CL, cs.CY, cs.LG, cs.MA |  | 2023.11(v2) |
-| NIPS 2023 | [HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face](https://arxiv.org/abs/2303.17580) | Yongliang Shen, et al. | hugging face, API | cs.CL, cs.AI, cs.CV, cs.LG |  | 2023.12 |
+| arXiv(v1) 2023 (NIPS 2023) | [CAMEL: Communicative Agents for "Mind" Exploration of Large Language Model Society](https://arxiv.org/abs/2303.17760) | Guohao Li, et al. | role play, autonomous, user&assistant | cs.AI, cs.CL, cs.CY, cs.LG, cs.MA |  | 2023.11(v2) |
+| arXiv(v1) 2023 (NIPS 2023) | [HuggingGPT: Solving AI Tasks with ChatGPT and its Friends in Hugging Face](https://arxiv.org/abs/2303.17580) | Yongliang Shen, et al. | hugging face, API | cs.CL, cs.AI, cs.CV, cs.LG |  | 2023.12 |
 | arXiv(v2) 2023 | [VOYAGER: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | Guanzhi Wang, et al. | multi, autonomous, microcraft, game | cs.AI, cs.LG |  | 2023.10 |
 | arXiv(v1) 2024 | [More Agents Is All You Need](https://arxiv.org/abs/2402.05120) | Junyou Li, et al. | multi agent, vote, task | cs.CL, cs.AI, cs.LG |  | 2024.02 |
 | arXiv(v3) 2023 | [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) | Lei Wang, et al. | survey, autonomous | cs.AI, cs.CL | Latest version is v4(2024.03), double columns. But v3(2023.09) single columns is easy to read. |  |

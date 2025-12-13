@@ -1,5 +1,22 @@
 # Development Roadmap
 
+## Recently Completed ✓
+
+- [x] **Smart Source Column Format** (Dec 2024)
+  - Automatically displays arXiv version info in format `arXiv(v1) 2024 (ICLR 2024)`
+  - Extracts version from Link even when Source is set to conference name
+  - Prioritizes arXiv information for better paper tracking
+
+- [x] **All Fields Display** (Dec 2024)
+  - DOI, Journal_Ref, and Comment fields now visible in CLI preview
+  - Empty fields display as "N/A" for clarity
+  - All 11 CSV fields preserved, 7 columns shown in README
+
+- [x] **Documentation Update** (Dec 2024)
+  - Updated USAGE.md with new format examples
+  - Enhanced FIELDS_GUIDE.md with smart format rules
+  - Added format detection logic documentation
+
 ## Phase 1: Core Enhancement
 
 - [ ] **Multi-source Fetcher**
