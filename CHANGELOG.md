@@ -18,10 +18,22 @@
   - Enhanced `FIELDS_GUIDE.md` with smart format rules and detection logic
   - Updated `TODO.md` with recently completed features
 
+- **src/ Directory Refactoring**:
+  - `src/README.md` - Comprehensive guide for legacy scripts
+  - `src/REFACTORING_SUMMARY.md` - Detailed refactoring documentation
+  - All scripts now have type hints and docstrings
+  - Deprecation warnings for legacy scripts
+
 ### Changed
 - Source column in README now automatically formats based on Link content
 - Authors display simplified to "First Author, et al." in README (full list in CSV)
 - Journal_Ref field now merged into Source column in README display
+
+### Improved
+- **test_arxiv_api.py**: Fully refactored with type hints, better error handling, emoji output
+- **csv2md_table.py**: Added deprecation warnings, points to `paper sync`
+- **add_arxiv_paper.py**: Added deprecation warnings, points to `paper add`
+- All scripts now have proper exit codes and user-friendly messages
 
 ### Technical Details
 - Added `_format_source_column()` method in `MarkdownGenerator` class
@@ -31,6 +43,7 @@
 ### Migration Notes
 - No CSV format changes - existing data fully compatible
 - README tables automatically regenerated with new format on next sync
+- Legacy scripts still work with deprecation warnings
 - No action required from users
 
 ---
