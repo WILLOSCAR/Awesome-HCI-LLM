@@ -100,6 +100,23 @@ paper stats
 | ISWC 2023 | [C-Auth: Exploring the Feasibility of Using Egocentric View of Face Contour for User Authentication on Glasses](https://dl.acm.org/doi/10.1145/3594738.3611355) |  | smart glasses, authentication, ecocentric view |  |  |  |
 | ISWC 2023 | Towards a Haptic Taxonomy of Emotions: Exploring Vibrotactile Stimulation in the Dorsal Region |  |  |  |  |  |
 | Todo |  |  |  |  |  |  |
+| arXiv(v2) 2024 | [Finding Candidate TeV Halos among Very-High Energy Sources](http://arxiv.org/abs/2403.16074v2) | Dong Zheng, et al. | VR, AR, egocentric, pose estimation | astro-ph.HE | 15 pages, 7 figures, 4 tables, referee's comments incorporated, accepted for publication in ApJ | 2024.05 |
+| arXiv(v1) 2024 | [Exploring Text-to-Motion Generation with Human Preference](http://arxiv.org/abs/2404.09445v1) | Jenny Sheng, et al. | IMU, human object interaction, dataset | cs.LG, cs.AI, cs.CV | Accepted to CVPR 2024 HuMoGen Workshop | 2024.04 |
+| arXiv(v1) 2024 | [LLMs in HCI Data Work: Bridging the Gap Between Information Retrieval and Responsible Research Practices](http://arxiv.org/abs/2403.18173v1) | Neda Taghizadeh Serajeh, et al. | VR, AR, avatar control, pose estimation | cs.HC, cs.IR | 5 pages, CHI2024 Workshop on LLMs as Research Tools: Applications and Evaluations in HCI Data Work | 2024.03 |
+| arXiv(v1) 2024 | [Modeling stock price dynamics on the Ghana Stock Exchange: A Geometric Brownian Motion approach](http://arxiv.org/abs/2403.13192v1) | Dennis Lartey Quayesam, et al. | VR, AR, motion capture, egocentric | math.OC, q-fin.ST |  | 2024.03 |
+| Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies 2023 | [CAvatar](https://doi.org/10.1145/3631424) | Wenqiang Chen, et al. | human activity, 3D mesh, tactile, pressure |  |  | 2023.12 |
+| Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies 2024 | [ViObject](https://doi.org/10.1145/3643547) | Wenqiang Chen, et al. | mental health, LLM, text data |  |  | 2024.03 |
+| Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies 2024 | [HyperHAR](https://doi.org/10.1145/3643511) | Nafees Ahmad, et al. | LLM, passive sensing, sensemaking |  |  | 2024.03 |
+| arXiv(v1) 2024 | [WheelPoser: Sparse-IMU Based Body Pose Estimation for Wheelchair Users](http://arxiv.org/abs/2409.08494v1) | Yunzhi Li, et al. | IMU, pose estimation, wheelchair, accessibility | cs.GR, cs.CV, cs.HC | Accepted by ASSETS 2024 | 2024.09 |
+| arXiv(v1) 2024 | [Modeling and optimization for arrays of water turbine OWC devices](http://arxiv.org/abs/2403.14509v1) | M. Gambarini, et al. | VR, AR, motion capture, egocentric, stereo camera | math.OC, physics.flu-dyn |  | 2024.03 |
+| arXiv(v2) 2025 (PRX Quantum 6, 020311 (April 2025)) | [Device-Independent Quantum Key Distribution Based on Routed Bell Tests](http://arxiv.org/abs/2404.01202v2) | Tristan Le Roy-Deloison, et al. | IMU, RGB, human object interaction, dataset, 3D tracking | quant-ph | Version2: Slight improvements in the text. Close to published version | 2025.05 |
+| arXiv(v1) 2024 | [On depth prediction for autonomous driving using self-supervised learning](http://arxiv.org/abs/2403.06194v1) | Houssem Boulahbal, et al. | VR, AR, avatar, pose estimation, headset | cs.CV | PhD thesis | 2024.03 |
+| arXiv(v1) 2024 | [Evaluating Text Classification Robustness to Part-of-Speech Adversarial Examples](http://arxiv.org/abs/2408.08374v1) | Anahita Samadi, et al. | IMU, transformer, pose estimation, calibration | cs.CL, cs.LG |  | 2024.08 |
+| arXiv(v2) 2025 | [Modeling Future Conversation Turns to Teach LLMs to Ask Clarifying Questions](http://arxiv.org/abs/2410.13788v2) | Michael J. Q. Zhang, et al. | IMU, diffusion, pose estimation, loose sensor | cs.CL | Presented at ICLR 2025 | 2025.03 |
+| arXiv(v1) 2025 | [Broadband shot-to-shot transient absorption anisotropy](http://arxiv.org/abs/2503.14144v1) | Maximilian Binzer, et al. | VR, AR, egocentric, motion capture, FRAME | physics.optics | The following article has been submitted to The Journal of Physical Chemistry. After it is published, it will be found at https://pubs.aip.org/aip/jcp | 2025.03 |
+| arXiv(v2) 2024 | [PRISM: Patient Records Interpretation for Semantic Clinical Trial Matching using Large Language Models](http://arxiv.org/abs/2404.15549v2) | Shashi Kant Gupta, et al. | IMU, RGB, HOI, dataset, tracking | cs.CL, cs.AI | 30 Pages, 8 Figures, Supplementary Work Attached | 2024.04 |
+| arXiv(v1) 2024 | [Bayesian Learned Models Can Detect Adversarial Malware For Free](http://arxiv.org/abs/2403.18309v1) | Bao Gia Doan, et al. | VR, AR, simulated avatar, headset | cs.CR | Accepted to the 29th European Symposium on Research in Computer Security (ESORICS) 2024 Conference | 2024.03 |
+| Proceedings of the CHI Conference on Human Factors in Computing Systems 2024 | [Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot Design](https://doi.org/10.1145/3613904.3642181) | Hochul Hwang, et al. | LLM, HCI, CHI, interaction |  |  | 2024.05 |
 <!-- TABLE_END: HCI -->
 
 # LLM
@@ -113,6 +130,17 @@ paper stats
 | arXiv(v1) 2024 | [Are You Being Tracked? Discover the Power of Zero-Shot Trajectory Tracing with LLMs!](https://arxiv.org/abs/2403.06201) | Huanqi Yang, et al. | iot, imu, cot, prompt | cs.CL, cs.AI, cs.HC, cs.LG |  | 2024.03 |
 | arXiv(v1) 2024 | [Ferret-UI: Grounded Mobile UI Understanding with Multimodal LLMs](https://arxiv.org/abs/2404.05719) | Keen You, et al. | ui, mllm, benchmark, any-resolution | cs.CV, cs.CL, cs.HC |  | 2024.04 |
 | arXiv(v7) 2023 | [Attention Is All You Need](http://arxiv.org/abs/1706.03762v7) | Ashish Vaswani, et al. | arxiv | cs.CL, cs.LG | 15 pages, 5 figures | 2023.08 |
+| arXiv(v3) 2025 | [Beyond 2:4: exploring V:N:M sparsity for efficient transformer inference on GPUs](http://arxiv.org/abs/2410.16135v3) | Kang Zhao, et al. | LLM, GUI agent, interface | cs.LG, cs.AI |  | 2025.06 |
+| arXiv(v3) 2025 | [Lai Loss: A Novel Loss for Gradient Control](http://arxiv.org/abs/2405.07884v3) | YuFei Lai, et al. | LLM, agent, interface, UI | cs.LG | The experiment in this article is not very rigorous and may require further testing for its effectiveness | 2025.05 |
+| arXiv(v2) 2024 | [Massively parallel CMA-ES with increasing population](http://arxiv.org/abs/2409.11765v2) | David Redon, et al. | LLM, agent, HCI, user interface | cs.DC |  | 2024.10 |
+| arXiv(v1) 2024 | [In-Band Full-Duplex MIMO Systems for Simultaneous Communications and Sensing: Challenges, Methods, and Future Perspectives](http://arxiv.org/abs/2410.06512v1) | Besma Smida, et al. | LLM, GUI agent, computer use | cs.IT, cs.ET, eess.SP | 12 pages, 5 figures, White Paper to appear at IEEE SPM | 2024.10 |
+| arXiv(v1) 2024 | [OrientedFormer: An End-to-End Transformer-Based Oriented Object Detector in Remote Sensing Images](http://arxiv.org/abs/2409.19648v1) | Jiaqi Zhao, et al. | LLM, agent, GUI, interface | cs.CV | The paper is accepted by IEEE Transactions on Geoscience and Remote Sensing (TGRS) | 2024.09 |
+| arXiv(v3) 2025 | [SignLLM: Sign Language Production Large Language Models](http://arxiv.org/abs/2405.10718v3) | Sen Fang, et al. | LLM, agent, user interface, HCI, interaction | cs.CV, cs.CL | website at https://signllm.github.io/ | 2025.04 |
+| arXiv(v6) 2025 | [LLaVA-CoT: Let Vision Language Models Reason Step-by-Step](http://arxiv.org/abs/2411.10440v6) | Guowei Xu, et al. | LLM, GUI agent, survey, computer use | cs.CV | 17 pages, ICCV 2025 | 2025.07 |
+| arXiv(v1) 2024 | [A Scalable Communication Protocol for Networks of Large Language Models](http://arxiv.org/abs/2410.11905v1) | Samuele Marro, et al. | LLM, agent, GUI, computer use, interface | cs.AI, cs.LG |  | 2024.10 |
+| arXiv(v1) 2024 | [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](http://arxiv.org/abs/2411.17465v1) | Kevin Qinghong Lin, et al. | LLM, UI, vision-language, GUI | cs.CV, cs.AI, cs.CL, cs.HC | Technical Report. Github: https://github.com/showlab/ShowUI | 2024.11 |
+| arXiv(v1) 2024 | [OS-ATLAS: A Foundation Action Model for Generalist GUI Agents](http://arxiv.org/abs/2410.23218v1) | Zhiyong Wu, et al. | LLM, agent, computer use, GUI, foundation model | cs.CL, cs.CV, cs.HC |  | 2024.10 |
+| arXiv(v1) 2024 | [Unlocking the Power of Environment Assumptions for Unit Proofs](http://arxiv.org/abs/2409.12269v1) | Siddharth Priya, et al. | LLM, GUI, agent, survey | cs.SE, cs.PL | SEFM 2024 | 2024.09 |
 <!-- TABLE_END: LLM -->
 
 # RAG
@@ -137,6 +165,8 @@ paper stats
 | arXiv(v2) 2023 | [VOYAGER: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) | Guanzhi Wang, et al. | multi, autonomous, microcraft, game | cs.AI, cs.LG |  | 2023.10 |
 | arXiv(v1) 2024 | [More Agents Is All You Need](https://arxiv.org/abs/2402.05120) | Junyou Li, et al. | multi agent, vote, task | cs.CL, cs.AI, cs.LG |  | 2024.02 |
 | arXiv(v3) 2023 | [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) | Lei Wang, et al. | survey, autonomous | cs.AI, cs.CL | Latest version is v4(2024.03), double columns. But v3(2023.09) single columns is easy to read. |  |
+| arXiv(v2) 2024 | [Feasibility Consistent Representation Learning for Safe Reinforcement Learning](http://arxiv.org/abs/2405.11718v2) | Zhepeng Cen, et al. | LLM, agent, UI, LAUI, interface | cs.LG | ICML 2024 | 2024.06 |
+| arXiv(v1) 2024 | [Simultaneous identification of the parameters in the plasticity function for power hardening materials : A Bayesian approach](http://arxiv.org/abs/2412.05241v1) | Salih Tatar, et al. | LLM, agent, computer use, evaluation | math.NA, math.AP |  | 2024.12 |
 <!-- TABLE_END: Agent -->
 
 # Poster
