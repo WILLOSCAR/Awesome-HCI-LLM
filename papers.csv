@@ -44,9 +44,9 @@ Ubicomp23,Radio2Text: Streaming Speech Recognition Using mmWave Radio Signals,,,
 Ubicomp23,HIPPO: Pervasive Hand-Grip Estimation from Everyday Interactions,,,,,,,,,HCI
 Ubicomp23,LT-Fall: The Design and Implementation of a Life-threatening Fall Detection and Alarming System,,,,,,,,,HCI
 Ubicomp22,IF-ConvTransformer: A Framework for Human Activity Recognition Using IMU Fusion and ConvTransformer,,,,https://dl.acm.org/doi/10.1145/3534584,"IMU, fusion, multimodal, transformer, attention",,,,HCI
-ISWC23,On the Utility of Virtual On-body Acceleration Data for Fine-grained Human Activity Recognition,,,,https://dl.acm.org/doi/10.1145/3594738.3611364,"HAR, virtual, IMU",,,,HCI
-ISWC23,C-Auth: Exploring the Feasibility of Using Egocentric View of Face Contour for User Authentication on Glasses,,,,https://dl.acm.org/doi/10.1145/3594738.3611355,"smart glasses, authentication, ecocentric view",,,,HCI
-ISWC23,Towards a Haptic Taxonomy of Emotions: Exploring Vibrotactile Stimulation in the Dorsal Region,,,,,,,,,HCI
+ISWC 2023,On the Utility of Virtual On-body Acceleration Data for Fine-grained Human Activity Recognition,,,,https://dl.acm.org/doi/10.1145/3594738.3611364,"HAR, virtual, IMU",,,,HCI
+ISWC 2023,C-Auth: Exploring the Feasibility of Using Egocentric View of Face Contour for User Authentication on Glasses,,,,https://dl.acm.org/doi/10.1145/3594738.3611355,"smart glasses, authentication, ecocentric view",,,,HCI
+ISWC 2023,Towards a Haptic Taxonomy of Emotions: Exploring Vibrotactile Stimulation in the Dorsal Region,,,,,,,,,HCI
 Todo,,,,,,,,,,HCI
 arXiv(v1) 2023,Multimodal Foundation Models: From Specialists to General-Purpose Assistants,"Chunyuan Li, Zhe Gan, Zhengyuan Yang, et al.",,,https://arxiv.org/abs/2309.10020,survey,"cs.CV, cs.CL",,2023.09,LLM
 NIPS23,Large Language Model as Attributed Training Data Generator: A Tale of Diversity and Bias,"Yue Yu, Yuchen Zhuang, Jieyu Zhang, et al.",,NeurIPS 2023,https://arxiv.org/abs/2306.15895,synthetic data generation,"cs.CL, cs.AI, cs.LG",,arXiv(v2) 2023.10,LLM
@@ -75,10 +75,10 @@ arXiv(v1) 2024,Modeling stock price dynamics on the Ghana Stock Exchange: A Geom
 arXiv(v3) 2025,Lai Loss: A Novel Loss for Gradient Control,YuFei Lai,,,http://arxiv.org/abs/2405.07884v3,"LLM, agent, interface, UI",cs.LG,The experiment in this article is not very rigorous and may require further testing for its effectiveness,2025.05,LLM
 arXiv(v2) 2024,Massively parallel CMA-ES with increasing population,"David Redon, Pierre Fortin, Bilel Derbel, et al.",,,http://arxiv.org/abs/2409.11765v2,"LLM, agent, HCI, user interface",cs.DC,,2024.10,LLM
 arXiv(v1) 2024,"In-Band Full-Duplex MIMO Systems for Simultaneous Communications and Sensing: Challenges, Methods, and Future Perspectives","Besma Smida, George C. Alexandropoulos, Taneli Riihonen, et al.",,,http://arxiv.org/abs/2410.06512v1,"LLM, GUI agent, computer use","cs.IT, cs.ET, eess.SP","12 pages, 5 figures, White Paper to appear at IEEE SPM",2024.10,LLM
-IMWUT23,CAvatar,"Wenqiang Chen, Yexin Hu, Wei Song, et al.",10.1145/3631424,,https://doi.org/10.1145/3631424,"human activity, 3D mesh, tactile, pressure",,,2023.12,HCI
+IMWUT 2023,CAvatar,"Wenqiang Chen, Yexin Hu, Wei Song, et al.",10.1145/3631424,,https://doi.org/10.1145/3631424,"human activity, 3D mesh, tactile, pressure",,,2023.12,HCI
 arXiv(v1) 2024,OrientedFormer: An End-to-End Transformer-Based Oriented Object Detector in Remote Sensing Images,"Jiaqi Zhao, Zeyu Ding, Yong Zhou, et al.",,,http://arxiv.org/abs/2409.19648v1,"LLM, agent, GUI, interface",cs.CV,The paper is accepted by IEEE Transactions on Geoscience and Remote Sensing (TGRS),2024.09,LLM
-IMWUT24,ViObject,"Wenqiang Chen, Shupei Lin, Zhencan Peng, et al.",10.1145/3643547,,https://doi.org/10.1145/3643547,"mental health, LLM, text data",,,2024.03,HCI
-IMWUT24,HyperHAR,"Nafees Ahmad, Ho-fung Leung",10.1145/3643511,,https://doi.org/10.1145/3643511,"LLM, passive sensing, sensemaking",,,2024.03,HCI
+IMWUT 2024,ViObject,"Wenqiang Chen, Shupei Lin, Zhencan Peng, et al.",10.1145/3643547,,https://doi.org/10.1145/3643547,"mental health, LLM, text data",,,2024.03,HCI
+IMWUT 2024,HyperHAR,"Nafees Ahmad, Ho-fung Leung",10.1145/3643511,,https://doi.org/10.1145/3643511,"LLM, passive sensing, sensemaking",,,2024.03,HCI
 arXiv(v1) 2024,WheelPoser: Sparse-IMU Based Body Pose Estimation for Wheelchair Users,"Yunzhi Li, Vimal Mollyn, Kuang Yuan, et al.",10.1145/3663548.3675638,,http://arxiv.org/abs/2409.08494v1,"IMU, pose estimation, wheelchair, accessibility","cs.GR, cs.CV, cs.HC",Accepted by ASSETS 2024,2024.09,HCI
 arXiv(v1) 2024,Modeling and optimization for arrays of water turbine OWC devices,"M. Gambarini, G. Agate, G. Ciaramella, et al.",,,http://arxiv.org/abs/2403.14509v1,"VR, AR, motion capture, egocentric, stereo camera","math.OC, physics.flu-dyn",,2024.03,HCI
 arXiv(v2) 2025,Device-Independent Quantum Key Distribution Based on Routed Bell Tests,"Tristan Le Roy-Deloison, Edwin Peter Lobo, Jef Pauwels, et al.",10.1103/PRXQuantum.6.020311,"PRX Quantum 6, 020311 (April 2025)",http://arxiv.org/abs/2404.01202v2,"IMU, RGB, human object interaction, dataset, 3D tracking",quant-ph,Version2: Slight improvements in the text. Close to published version,2025.05,HCI
