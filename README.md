@@ -84,7 +84,6 @@ paper stats
 | ISWC 2023 | [On the Utility of Virtual On-body Acceleration Data for Fine-grained Human Activity Recognition](https://dl.acm.org/doi/10.1145/3594738.3611364) |  | HAR, virtual, IMU |  |  |  |
 | ISWC 2023 | [C-Auth: Exploring the Feasibility of Using Egocentric View of Face Contour for User Authentication on Glasses](https://dl.acm.org/doi/10.1145/3594738.3611355) |  | smart glasses, authentication, ecocentric view |  |  |  |
 | ISWC 2023 | Towards a Haptic Taxonomy of Emotions: Exploring Vibrotactile Stimulation in the Dorsal Region |  |  |  |  |  |
-| Todo |  |  |  |  |  |  |
 | arXiv(v2) 2024 | [Finding Candidate TeV Halos among Very-High Energy Sources](http://arxiv.org/abs/2403.16074v2) | Dong Zheng, et al. | VR, AR, egocentric, pose estimation | astro-ph.HE | 15 pages, 7 figures, 4 tables, referee's comments incorporated, accepted for publication in ApJ | 2024.05 |
 | arXiv(v1) 2024 | [Exploring Text-to-Motion Generation with Human Preference](http://arxiv.org/abs/2404.09445v1) | Jenny Sheng, et al. | IMU, human object interaction, dataset | cs.LG, cs.AI, cs.CV | Accepted to CVPR 2024 HuMoGen Workshop | 2024.04 |
 | arXiv(v1) 2024 | [LLMs in HCI Data Work: Bridging the Gap Between Information Retrieval and Responsible Research Practices](http://arxiv.org/abs/2403.18173v1) | Neda Taghizadeh Serajeh, et al. | VR, AR, avatar control, pose estimation | cs.HC, cs.IR | 5 pages, CHI2024 Workshop on LLMs as Research Tools: Applications and Evaluations in HCI Data Work | 2024.03 |
@@ -102,6 +101,11 @@ paper stats
 | arXiv(v2) 2024 | [PRISM: Patient Records Interpretation for Semantic Clinical Trial Matching using Large Language Models](http://arxiv.org/abs/2404.15549v2) | Shashi Kant Gupta, et al. | IMU, RGB, HOI, dataset, tracking | cs.CL, cs.AI | 30 Pages, 8 Figures, Supplementary Work Attached | 2024.04 |
 | arXiv(v1) 2024 | [Bayesian Learned Models Can Detect Adversarial Malware For Free](http://arxiv.org/abs/2403.18309v1) | Bao Gia Doan, et al. | VR, AR, simulated avatar, headset | cs.CR | Accepted to the 29th European Symposium on Research in Computer Security (ESORICS) 2024 Conference | 2024.03 |
 | CHI24 | [Towards Robotic Companions: Understanding Handler-Guide Dog Interactions for Informed Guide Dog Robot Design](https://doi.org/10.1145/3613904.3642181) | Hochul Hwang, et al. | LLM, HCI, CHI, interaction |  |  | 2024.05 |
+| arXiv(v4) 2025 | [LLaSA: A Sensor-Aware LLM for Natural Language Reasoning of Human Activity from IMU Data](http://arxiv.org/abs/2406.14498v4) | Sheikh Asif Imran, et al. | IMU, LLM, wearable, sensor, HAR | cs.CL |  | 2025.09 |
+| arXiv(v1) 2024 | [IMUGPT 2.0: Language-Based Cross Modality Transfer for Sensor-Based Human Activity Recognition](http://arxiv.org/abs/2402.01049v1) | Zikang Leng, et al. | IMU, LLM, cross-modality, HAR | cs.CV |  | 2024.02 |
+| arXiv(v4) 2025 | [SensorLLM: Aligning Large Language Models with Motion Sensors for Human Activity Recognition](http://arxiv.org/abs/2410.10624v4) | Zechen Li, et al. | IMU, LLM, motion sensor, HAR | cs.CL | Accepted by EMNLP 2025 Main Conference | 2025.08 |
+| arXiv(v2) 2024 | [Health-LLM: Large Language Models for Health Prediction via Wearable Sensor Data](http://arxiv.org/abs/2401.06866v2) | Yubin Kim, et al. | LLM, wearable, health prediction | cs.CL, cs.AI, cs.LG |  | 2024.04 |
+| Ubicomp24 | [Sensor2Text: Enabling Natural Language Interactions for Daily Activity Tracking Using Wearable Sensors](https://doi.org/10.1145/3699747) | Wenqiang Chen, et al. | LLM, wearable, natural language, activity tracking |  |  | 2024.11 |
 <!-- TABLE_END: HCI -->
 
 # LLM
@@ -152,6 +156,8 @@ paper stats
 | arXiv(v3) 2023 | [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) | Lei Wang, et al. | survey, autonomous | cs.AI, cs.CL | Latest version is v4(2024.03), double columns. But v3(2023.09) single columns is easy to read. |  |
 | arXiv(v2) 2024 | [Feasibility Consistent Representation Learning for Safe Reinforcement Learning](http://arxiv.org/abs/2405.11718v2) | Zhepeng Cen, et al. | LLM, agent, UI, LAUI, interface | cs.LG | ICML 2024 | 2024.06 |
 | arXiv(v1) 2024 | [Simultaneous identification of the parameters in the plasticity function for power hardening materials : A Bayesian approach](http://arxiv.org/abs/2412.05241v1) | Salih Tatar, et al. | LLM, agent, computer use, evaluation | math.NA, math.AP |  | 2024.12 |
+| arXiv(v1) 2025 | [Memory in the Age of AI Agents](http://arxiv.org/abs/2512.13564v1) | Yuyang Hu, et al. | agent, memory, survey, LLM | cs.CL, cs.AI |  | 2025.12 |
+| arXiv(v1) 2024 | [A Survey on the Memory Mechanism of Large Language Model based Agents](http://arxiv.org/abs/2404.13501v1) | Zeyu Zhang, et al. | agent, memory, survey, LLM | cs.AI | 39 pages, 5 figures, 4 tables | 2024.04 |
 <!-- TABLE_END: Agent -->
 
 # Poster
