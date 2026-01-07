@@ -161,6 +161,9 @@ paper stats
 | arXiv(v1) 2024 | [Simultaneous identification of the parameters in the plasticity function for power hardening materials : A Bayesian approach](http://arxiv.org/abs/2412.05241v1) | Salih Tatar, et al. | LLM, agent, computer use, evaluation | math.NA, math.AP |  | 2024.12 |
 | arXiv(v1) 2025 | [Memory in the Age of AI Agents](http://arxiv.org/abs/2512.13564v1) | Yuyang Hu, et al. | agent, memory, survey, LLM | cs.CL, cs.AI |  | 2025.12 |
 | arXiv(v1) 2024 | [A Survey on the Memory Mechanism of Large Language Model based Agents](http://arxiv.org/abs/2404.13501v1) | Zeyu Zhang, et al. | agent, memory, survey, LLM | cs.AI | 39 pages, 5 figures, 4 tables | 2024.04 |
+| arXiv(v1) 2025 | [Understanding Tool-Integrated Reasoning](http://arxiv.org/abs/2508.19201v1) | Heng Lin, et al. | LLM, agent, tool use, reasoning, TIR | cs.LG, cs.AI, stat.ML |  | 2025.08 |
+| arXiv(v2) 2025 | [Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](http://arxiv.org/abs/2502.04644v2) | Junde Wu, et al. | LLM, agent, agentic reasoning, tool use, framework | cs.AI, cs.CL | ACL 2025 | 2025.07 |
+| arXiv(v1) 2025 | [From LLM Reasoning to Autonomous AI Agents: A Comprehensive Review](http://arxiv.org/abs/2504.19678v1) | Mohamed Amine Ferrag, et al. | LLM, agent, survey, autonomous, comprehensive review | cs.AI, cs.LG |  | 2025.04 |
 <!-- TABLE_END: Agent -->
 
 # Poster
