@@ -89,9 +89,9 @@ paper stats
 | arXiv(v1) 2024 | [Exploring Text-to-Motion Generation with Human Preference](http://arxiv.org/abs/2404.09445v1) | Jenny Sheng, et al. | IMU, human object interaction, dataset | cs.LG, cs.AI, cs.CV | Accepted to CVPR 2024 HuMoGen Workshop | 2024.04 |
 | arXiv(v1) 2024 | [LLMs in HCI Data Work: Bridging the Gap Between Information Retrieval and Responsible Research Practices](http://arxiv.org/abs/2403.18173v1) | Neda Taghizadeh Serajeh, et al. | VR, AR, avatar control, pose estimation | cs.HC, cs.IR | 5 pages, CHI2024 Workshop on LLMs as Research Tools: Applications and Evaluations in HCI Data Work | 2024.03 |
 | arXiv(v1) 2024 | [Modeling stock price dynamics on the Ghana Stock Exchange: A Geometric Brownian Motion approach](http://arxiv.org/abs/2403.13192v1) | Dennis Lartey Quayesam, et al. | VR, AR, motion capture, egocentric | math.OC, q-fin.ST |  | 2024.03 |
-| IMWUT 2023 | [CAvatar](https://doi.org/10.1145/3631424) | Wenqiang Chen, et al. | human activity, 3D mesh, tactile, pressure |  |  | 2023.12 |
-| IMWUT 2024 | [ViObject](https://doi.org/10.1145/3643547) | Wenqiang Chen, et al. | mental health, LLM, text data |  |  | 2024.03 |
-| IMWUT 2024 | [HyperHAR](https://doi.org/10.1145/3643511) | Nafees Ahmad, et al. | LLM, passive sensing, sensemaking |  |  | 2024.03 |
+| Ubicomp23 | [CAvatar](https://doi.org/10.1145/3631424) | Wenqiang Chen, et al. | human activity, 3D mesh, tactile, pressure |  |  | 2023.12 |
+| Ubicomp24 | [ViObject](https://doi.org/10.1145/3643547) | Wenqiang Chen, et al. | mental health, LLM, text data |  |  | 2024.03 |
+| Ubicomp24 | [HyperHAR](https://doi.org/10.1145/3643511) | Nafees Ahmad, et al. | LLM, passive sensing, sensemaking |  |  | 2024.03 |
 | arXiv(v1) 2024 | [WheelPoser: Sparse-IMU Based Body Pose Estimation for Wheelchair Users](http://arxiv.org/abs/2409.08494v1) | Yunzhi Li, et al. | IMU, pose estimation, wheelchair, accessibility | cs.GR, cs.CV, cs.HC | Accepted by ASSETS 2024 | 2024.09 |
 | arXiv(v1) 2024 | [Modeling and optimization for arrays of water turbine OWC devices](http://arxiv.org/abs/2403.14509v1) | M. Gambarini, et al. | VR, AR, motion capture, egocentric, stereo camera | math.OC, physics.flu-dyn |  | 2024.03 |
 | arXiv(v2) 2025 (PRX Quantum 6, 020311 (April 2025)) | [Device-Independent Quantum Key Distribution Based on Routed Bell Tests](http://arxiv.org/abs/2404.01202v2) | Tristan Le Roy-Deloison, et al. | IMU, RGB, human object interaction, dataset, 3D tracking | quant-ph | Version2: Slight improvements in the text. Close to published version | 2025.05 |
