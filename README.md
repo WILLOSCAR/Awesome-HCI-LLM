@@ -106,6 +106,9 @@ paper stats
 | arXiv(v4) 2025 | [SensorLLM: Aligning Large Language Models with Motion Sensors for Human Activity Recognition](http://arxiv.org/abs/2410.10624v4) | Zechen Li, et al. | IMU, LLM, motion sensor, HAR | cs.CL | Accepted by EMNLP 2025 Main Conference | 2025.08 |
 | arXiv(v2) 2024 | [Health-LLM: Large Language Models for Health Prediction via Wearable Sensor Data](http://arxiv.org/abs/2401.06866v2) | Yubin Kim, et al. | LLM, wearable, health prediction | cs.CL, cs.AI, cs.LG |  | 2024.04 |
 | Ubicomp24 | [Sensor2Text: Enabling Natural Language Interactions for Daily Activity Tracking Using Wearable Sensors](https://doi.org/10.1145/3699747) | Wenqiang Chen, et al. | LLM, wearable, natural language, activity tracking |  |  | 2024.11 |
+| CHI25 | [Interactive Debugging and Steering of Multi-Agent AI Systems](https://doi.org/10.1145/3706598.3713581) | Will Epperson, et al. | LLM, agent, multi-agent, debugging, HCI |  |  | 2025.04 |
+| CHI25 | [Understanding the LLM-ification of CHI: Unpacking the Impact of LLMs at CHI through a Systematic Literature Review](https://doi.org/10.1145/3706598.3713726) | Rock Yuren Pang, et al. | LLM, HCI, CHI, survey, systematic review |  |  | 2025.04 |
+| CHI25 | [Users' Expectations and Practices with Agent Memory](https://doi.org/10.1145/3706599.3720158) | Brennan Jones, et al. | LLM, agent, memory, user expectations, HCI |  |  | 2025.04 |
 <!-- TABLE_END: HCI -->
 
 # LLM
