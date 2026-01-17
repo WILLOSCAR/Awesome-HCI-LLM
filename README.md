@@ -1,34 +1,29 @@
-# awesome-hci-llm-agent-paper (Since 2021)
-This repository is dedicated to the exploration of the most recent advancements in Human-Computer Interaction (HCI), encompassing Awesome-HCI (Ubiquitous, LLM, MLLM, Agent, RAG, Embodied-AI, RLHF) and related research areas. The primary focus is on reviewing cutting-edge research papers, followed by an examination of seminal works in the field.
+# Awesome HCI-LLM-Agent Papers
 
-Given the potential overlap between LLM and Agent research, a precise categorization of papers into specific domains will, for now, be deferred. Instead, attention is placed on the contributions of each paper and the tags assigned to them. These tags have been selected to facilitate the indexing of related papers; although they may appear numerous, they serve to enhance navigation. It is acknowledged that the current tags are somewhat broad, and there is an intention to refine and reorganize them when possible for more precise indexing and retrieval.
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-**[June 2025 Update]** This repository has now resumed regular updates. We will continue to track and compile the latest research findings in the fields of HCI, LLMs, and intelligent agents.
+A curated collection of research papers on **HCI**, **LLM**, **MLLM**, **Agent**, **RAG**, **Agentic-RL**, and **Embodied AI** (2021–present).
 
-## Documentation
+> **[Jan 2025]** Added new sections: **Agentic-RL** and **MLLM**. Regular updates resumed.
 
-- **[USAGE.md](USAGE.md)** - Complete CLI command reference and usage examples
-- **[FIELDS_GUIDE.md](FIELDS_GUIDE.md)** - Field usage guide and paper lifecycle workflows
-- **[FORMAT_EXAMPLES.md](FORMAT_EXAMPLES.md)** - Real examples of paper format in CSV and README
-- **[TODO.md](TODO.md)** - Development roadmap and feature tracking
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=WILLOSCAR/Awesome-HCI-LLM&type=Date)](https://star-history.com/#WILLOSCAR/Awesome-HCI-LLM&Date)
 
 ## Quick Start
 
 ```bash
-# Install CLI tool
-pip install -e .
-
-# Add paper from arXiv (auto-fetch metadata)
-paper add 2312.00752 LLM -t "llm, mamba"
-
-# Search papers
-paper search transformer -t IMU
-
-# Show statistics
-paper stats
+pip install -e .                          # Install CLI
+paper add 2312.00752 LLM -t "llm, mamba"  # Add paper
+paper search transformer -t IMU           # Search
+paper stats                               # Statistics
 ```
 
-**Table Format**: The paper tables use 7 columns with smart formatting. Source column prioritizes arXiv version info (e.g., `arXiv(v1) 2024 (ICLR 2024)`), ensuring version tracking even when papers are published at conferences.
+## Documentation
+
+- [USAGE.md](USAGE.md) - CLI reference
+- [FIELDS_GUIDE.md](FIELDS_GUIDE.md) - Field guide
+- [FORMAT_EXAMPLES.md](FORMAT_EXAMPLES.md) - Format examples
 
 ---
 
@@ -240,6 +235,15 @@ paper stats
 | arXiv(v1) 2024 | LLM-Augmented Retrieval: Enhancing Retrieval Models Through Language Models and Doc-Level Embedding |  | relevant query, doc-Level embedding, embedding-based retrieval, dense retrieval |  |  | 2024.04 |
 | arXiv(v1) 2025 | [Ask in Any Modality: A Comprehensive Survey on Multimodal Retrieval-Augmented Generation](http://arxiv.org/abs/2502.08826v1) | Zihan Wang, et al. | multimodal, RAG, retrieval, survey, LLM | cs.CL, cs.IR |  | 2025.02 |
 | arXiv(v1) 2025 | [A Survey of Multimodal Retrieval-Augmented Generation](http://arxiv.org/abs/2504.08748v1) | Zihan Zhao, et al. | multimodal, RAG, retrieval, survey, vision-language | cs.CV, cs.CL |  | 2025.04 |
+| arXiv(v1) 2025 | [A Systematic Review of Key RAG Systems: Progress, Gaps, and Future Directions](http://arxiv.org/abs/2507.18910v1) | Authors TBD, et al. | RAG, survey, systematic review, knowledge base | cs.CL, cs.IR |  | 2025.07 |
+| arXiv(v1) 2025 | [RAG Survey: Architectures, Enhancements, and Robustness Frontiers](http://arxiv.org/abs/2506.00054v1) | Authors TBD, et al. | RAG, survey, architecture, robustness | cs.CL, cs.IR |  | 2025.06 |
+| arXiv(v1) 2025 | [RAG Evaluation in the Era of LLMs: A Comprehensive Survey](http://arxiv.org/abs/2504.14891v1) | Authors TBD, et al. | RAG, evaluation, benchmark, LLM | cs.CL, cs.IR |  | 2025.04 |
+| arXiv(v1) 2025 | [HiRAG: Retrieval-Augmented Generation with Hierarchical Knowledge](http://arxiv.org/abs/2503.10150v1) | Authors TBD, et al. | RAG, hierarchical, knowledge, indexing | cs.CL, cs.IR |  | 2025.03 |
+| arXiv(v1) 2025 | [RAGLens: Toward Faithful RAG with Sparse Autoencoders](http://arxiv.org/abs/2512.08892v1) | Authors TBD, et al. | RAG, hallucination, faithfulness, detection | cs.CL |  | 2025.12 |
+| arXiv(v1) 2025 | [Agentic RAG for Fintech: Design and Evaluation](http://arxiv.org/abs/2510.25518v1) | Authors TBD, et al. | RAG, agentic, fintech, query reformulation | cs.CL, cs.IR |  | 2025.10 |
+| arXiv(v1) 2025 | [Agentic RAG: A Survey](http://arxiv.org/abs/2501.09136v1) | Authors TBD, et al. | RAG, agentic, survey, LLM agent | cs.CL, cs.IR |  | 2025.01 |
+| arXiv(v1) 2025 | [CG-RAG: Citation Graph RAG for Research Question Answering](http://arxiv.org/abs/2501.15067v1) | Authors TBD, et al. | RAG, citation graph, research QA | cs.CL, cs.IR |  | 2025.01 |
+| arXiv(v1) 2025 | [Vendi-RAG: Adaptively Trading Off Diversity and Quality in RAG](http://arxiv.org/abs/2502.11228v1) | Authors TBD, et al. | RAG, diversity, quality, adaptive | cs.CL, cs.IR |  | 2025.02 |
 <!-- TABLE_END: RAG -->
 
 # Agent
@@ -268,6 +272,15 @@ paper stats
 | arXiv(v1) 2025 | [LLM-based Agentic Reasoning Frameworks: A Survey from Methods to Scenarios](http://arxiv.org/abs/2508.17692v1) | Bingxi Zhao, et al. | LLM, agent, reasoning, survey, framework | cs.AI, cs.CL |  | 2025.08 |
 | arXiv(v4) 2025 | [Towards Embodied Agentic AI: Review and Classification of LLM- and VLM-Driven Robot Autonomy and Interaction](http://arxiv.org/abs/2508.05294v4) | Harshitha Manoj, et al. | embodied AI, robot, LLM, VLM, autonomy, survey | cs.RO, cs.AI |  | 2025.08 |
 | arXiv(v3) 2025 | [Embodied AI Agents: Modeling the World](http://arxiv.org/abs/2506.22355v3) | Pascale Fung, et al. | embodied AI, world model, VLM, robot, avatar | cs.AI | Meta AI | 2025.07 |
+| arXiv(v1) 2025 | [Agent0: Self-Evolving Agents from Zero Data via Tool-Integrated Reasoning](http://arxiv.org/abs/2511.16043v1) | Authors TBD, et al. | LLM agent, self-evolving, tool use, reasoning | cs.AI, cs.CL | 18% improvement on math, 24% on general | 2025.11 |
+| arXiv(v1) 2025 | [Toward a Theory of Agents as Tool-Use Decision-Makers](http://arxiv.org/abs/2506.00886v1) | Authors TBD, et al. | LLM agent, tool use, theory, decision making | cs.AI, cs.CL |  | 2025.06 |
+| arXiv(v1) 2025 | [Beyond Task Completion: Assessment Framework for Agentic AI Systems](http://arxiv.org/abs/2512.12791v1) | Authors TBD, et al. | LLM agent, evaluation, framework, benchmark | cs.AI, cs.CL |  | 2025.12 |
+| arXiv(v1) 2025 | [Routine: A Structural Planning Framework for LLM Agent System in Enterprise](http://arxiv.org/abs/2507.14447v1) | Authors TBD, et al. | LLM agent, planning, enterprise, framework | cs.AI, cs.CL |  | 2025.07 |
+| arXiv(v1) 2025 | [Architecting Resilient LLM Agents](http://arxiv.org/abs/2509.08646v1) | Authors TBD, et al. | LLM agent, resilience, architecture | cs.AI, cs.CL |  | 2025.09 |
+| arXiv(v1) 2025 | [A Survey on Code Generation with LLM-based Agents](http://arxiv.org/abs/2508.00083v1) | Authors TBD, et al. | code agent, LLM, code generation, survey | cs.SE, cs.AI |  | 2025.08 |
+| arXiv(v1) 2025 | [DeepCode: Open Agentic Coding](http://arxiv.org/abs/2512.07921v1) | Authors TBD, et al. | code agent, agentic coding, open source | cs.SE, cs.AI |  | 2025.12 |
+| arXiv(v1) 2026 | [LLM-Based Agentic Systems for Software Engineering: Challenges and Opportunities](http://arxiv.org/abs/2601.09822v1) | Authors TBD, et al. | code agent, software engineering, survey | cs.SE, cs.AI |  | 2026.01 |
+| arXiv(v1) 2025 | [SWE-RL: Training Superintelligent Software Agents through Self-Play](http://arxiv.org/abs/2512.18552v1) | Authors TBD, et al. | code agent, self-play, RL, software engineering | cs.SE, cs.LG |  | 2025.12 |
 <!-- TABLE_END: Agent -->
 
 # Poster
@@ -290,3 +303,33 @@ paper stats
 - [x] 6.Automate arXiv paper entry by fetching metadata (authors, subjects, etc.) from the arXiv API.
 - [x] 7.Refine table display format (e.g., author list, column visibility) for better readability.
 - [x] 8.Smart Source column format - prioritize arXiv version information (`arXiv(v1) 2024 (ICLR 2024)`).
+
+# Agentic-RL
+<!-- TABLE_START: Agentic-RL -->
+| Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
+|---|---|---|---|---|---|---|
+| arXiv(v1) 2025 | [AGENTRL: Scaling Agentic Reinforcement Learning](http://arxiv.org/abs/2510.04206v1) | Authors TBD, et al. | agentic RL, RLHF, LLM agent, scaling | cs.LG, cs.AI | Outperforms GPT-5 and Claude-Sonnet-4 | 2025.10 |
+| arXiv(v1) 2025 | [The Landscape of Agentic Reinforcement Learning for LLMs: A Survey](http://arxiv.org/abs/2509.02547v1) | Authors TBD, et al. | agentic RL, survey, LLM, POMDP | cs.LG, cs.AI |  | 2025.09 |
+| arXiv(v1) 2025 | [iStar: Agentic Reinforcement Learning with Implicit Step Rewards](http://arxiv.org/abs/2509.19199v1) | Authors TBD, et al. | agentic RL, credit assignment, implicit PRM | cs.LG, cs.AI |  | 2025.09 |
+| arXiv(v1) 2025 | [Process Reward Models for LLM Agents: Practical Framework](http://arxiv.org/abs/2502.10325v1) | Authors TBD, et al. | PRM, reward model, LLM agent, RLHF | cs.LG, cs.AI | InversePRM | 2025.02 |
+| arXiv(v1) 2025 | [Enhancing Agentic RL with Progressive Reward Shaping and VSPO](http://arxiv.org/abs/2512.07478v1) | Authors TBD, et al. | agentic RL, reward shaping, GRPO, tool use | cs.LG, cs.AI |  | 2025.12 |
+| arXiv(v1) 2025 | [Reward Hacking Mitigation using Verifiable Composite Rewards](http://arxiv.org/abs/2509.15557v1) | Authors TBD, et al. | RLHF, reward hacking, RLVR, verification | cs.LG, cs.AI |  | 2025.09 |
+| arXiv(v1) 2025 | [Provably Efficient Online RLHF with One-Pass Reward Modeling](http://arxiv.org/abs/2502.07193v1) | Authors TBD, et al. | online RLHF, reward modeling, efficiency | cs.LG, cs.AI |  | 2025.02 |
+<!-- TABLE_END: Agentic-RL -->
+
+# MLLM
+<!-- TABLE_START: MLLM -->
+| Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
+|---|---|---|---|---|---|---|
+| arXiv(v1) 2025 | [VIRAL: Visual Representation Alignment for MLLMs](http://arxiv.org/abs/2509.07979v1) | Authors TBD, et al. | MLLM, visual alignment, fine-grained understanding | cs.CV, cs.CL |  | 2025.09 |
+| arXiv(v1) 2025 | [VLM-R1: A Stable and Generalizable R1-Style Large VLM](http://arxiv.org/abs/2504.07615v1) | Authors TBD, et al. | MLLM, VLM, reasoning, R1-style | cs.CV, cs.CL |  | 2025.04 |
+| arXiv(v1) 2025 | [Vision-R1: Incentivizing Reasoning Capability in MLLMs](http://arxiv.org/abs/2503.06749v1) | Authors TBD, et al. | MLLM, reasoning, visual reasoning | cs.CV, cs.CL |  | 2025.03 |
+| arXiv(v1) 2025 | [R1-Zero's Aha Moment in Visual Reasoning on a 2B Non-SFT Model](http://arxiv.org/abs/2503.05132v1) | Authors TBD, et al. | MLLM, visual reasoning, R1-Zero, emergent | cs.CV, cs.CL |  | 2025.03 |
+| arXiv(v1) 2025 | [Large VLM-based Vision-Language-Action Models for Robotic Manipulation: A Survey](http://arxiv.org/abs/2508.13073v1) | Authors TBD, et al. | MLLM, VLA, robotics, manipulation, survey | cs.RO, cs.CV |  | 2025.08 |
+| arXiv(v1) 2025 | [Visual Perception Token for Multimodal Large Language Models](http://arxiv.org/abs/2502.17425v1) | Authors TBD, et al. | MLLM, visual perception, token, autonomous control | cs.CV, cs.CL | 829k training samples | 2025.02 |
+| arXiv(v1) 2025 | [Manager: Aggregating Insights from Unimodal Experts in VLMs and MLLMs](http://arxiv.org/abs/2506.11515v1) | Authors TBD, et al. | MLLM, VLM, unimodal experts, fusion | cs.CV, cs.CL |  | 2025.06 |
+| arXiv(v1) 2025 | [Insight-V: Exploring Long-Chain Visual Reasoning with MLLMs](https://openaccess.thecvf.com/CVPR2025) | Authors TBD, et al. | MLLM, visual reasoning, long-chain, CVPR | cs.CV | CVPR 2025 | 2025.06 |
+| arXiv(v1) 2025 | [MT-Video-Bench: Video Understanding Benchmark for MLLMs in Multi-Turn Dialogues](http://arxiv.org/abs/2510.17722v1) | Authors TBD, et al. | MLLM, video understanding, benchmark, multi-turn | cs.CV, cs.CL |  | 2025.10 |
+| arXiv(v1) 2025 | [MVU-Eval: Multi-Video Understanding Evaluation for MLLMs](http://arxiv.org/abs/2511.07250v1) | Authors TBD, et al. | MLLM, multi-video, evaluation, benchmark | cs.CV, cs.CL |  | 2025.11 |
+| arXiv(v1) 2025 | [VideoLLM Benchmarks and Evaluation: A Survey](http://arxiv.org/abs/2505.03829v1) | Authors TBD, et al. | MLLM, video, benchmark, evaluation, survey | cs.CV, cs.CL |  | 2025.05 |
+<!-- TABLE_END: MLLM -->
