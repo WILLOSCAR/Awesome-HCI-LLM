@@ -164,6 +164,14 @@ paper stats
 | CHI24 | [Understanding the Impact of Long-Term Memory on Self-Disclosure with LLM-Driven Chatbots](https://doi.org/10.1145/3613904.3642420) | Authors TBD, et al. | LLM, chatbot, long-term memory, self-disclosure, health |  |  | 2024.05 |
 | CHI24 | [The HaLLMark Effect: Supporting Provenance and Transparent Use of LLMs in Writing](https://doi.org/10.1145/3613904.3641895) | Authors TBD, et al. | LLM, writing, provenance, visualization, transparency |  |  | 2024.05 |
 | CHI24 | [Bridging the Gulf of Envisioning: Cognitive Challenges in Prompt Based Interactions with LLMs](https://doi.org/10.1145/3613904.3642754) | Authors TBD, et al. | LLM, prompt, cognitive challenges, user study |  |  | 2024.05 |
+| Ubicomp24 | [Leveraging LLMs to Predict Affective States via Smartphone Sensor Features](https://doi.org/10.1145/3675094.3678420) | Authors TBD, et al. | LLM, smartphone, sensing, affective state, digital phenotyping |  | First LLM work for affective state prediction | 2024.10 |
+| Ubicomp24 | [Leveraging Large Language Models for Generating Mobile Sensing Strategies in Human Behavior Modeling](https://doi.org/10.1145/3675094.3678423) | Authors TBD, et al. | LLM, mobile sensing, behavior modeling, strategy generation |  |  | 2024.10 |
+| Ubicomp24 | [Capturing the College Experience: A Four-Year Mobile Sensing Study of Mental Health](https://doi.org/10.1145/3643501) | Authors TBD, et al. | mobile sensing, mental health, college, longitudinal |  | 19 citations, IMWUT Vol 8 Issue 1 | 2024.03 |
+| SenSys25 | [Demo: An LLM-Powered Multimodal Mobile Sensing System for Personalized Health Behavior Analysis](https://doi.org/10.1145/3715014.3724376) | Authors TBD, et al. | LLM, mobile sensing, multimodal, health, personalized |  | Demo paper | 2025.11 |
+| CHI25 | [LifeInsight: Design and Evaluation of an AI-Powered Assistive Wearable for Blind and Low Vision People](https://doi.org/10.1145/3706598.3713486) | Authors TBD, et al. | AI, wearable, accessibility, BLV, assistive |  |  | 2025.04 |
+| CHI25 | [Human Robot Interaction for Blind and Low Vision People: A Systematic Literature Review](https://doi.org/10.1145/3706598.3713438) | Authors TBD, et al. | robot, accessibility, BLV, HRI, survey |  |  | 2025.04 |
+| CHI25 | [TableNarrator: Making Image Tables Accessible to Blind and Low Vision People](https://doi.org/10.1145/3706598.3714329) | Authors TBD, et al. | accessibility, BLV, tables, image, data |  |  | 2025.04 |
+| CHI25 | [DanmuA11y: Making Time-Synced Video Comments Accessible to BLV Users](https://doi.org/10.1145/3706598.3713496) | Authors TBD, et al. | accessibility, BLV, video, Danmu, audio |  |  | 2025.04 |
 <!-- TABLE_END: HCI -->
 
 # LLM
