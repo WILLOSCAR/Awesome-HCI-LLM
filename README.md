@@ -244,6 +244,16 @@ paper stats                               # Statistics
 | arXiv(v1) 2025 | [Agentic RAG: A Survey](http://arxiv.org/abs/2501.09136v1) | Authors TBD, et al. | RAG, agentic, survey, LLM agent | cs.CL, cs.IR |  | 2025.01 |
 | arXiv(v1) 2025 | [CG-RAG: Citation Graph RAG for Research Question Answering](http://arxiv.org/abs/2501.15067v1) | Authors TBD, et al. | RAG, citation graph, research QA | cs.CL, cs.IR |  | 2025.01 |
 | arXiv(v1) 2025 | [Vendi-RAG: Adaptively Trading Off Diversity and Quality in RAG](http://arxiv.org/abs/2502.11228v1) | Authors TBD, et al. | RAG, diversity, quality, adaptive | cs.CL, cs.IR |  | 2025.02 |
+| arXiv(v1) 2025 | [GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation](http://arxiv.org/abs/2502.01113v1) | Authors TBD, et al. | RAG, graph, foundation model, knowledge graph | cs.CL, cs.IR | 8M params, 60 KGs, 14M triples | 2025.02 |
+| arXiv(v1) 2025 | [KG2RAG: Knowledge Graph-Guided Retrieval Augmented Generation](http://arxiv.org/abs/2502.06864v1) | Authors TBD, et al. | RAG, knowledge graph, retrieval, fact-level | cs.CL, cs.IR |  | 2025.02 |
+| arXiv(v1) 2025 | [GraphRAG-Bench: When to Use Graphs in RAG](http://arxiv.org/abs/2506.05690v1) | Authors TBD, et al. | RAG, graph, benchmark, evaluation | cs.CL, cs.IR |  | 2025.06 |
+| arXiv(v1) 2025 | [Late Chunking: Contextual Chunk Embeddings for RAG](http://arxiv.org/abs/2409.04701v3) | Authors TBD, et al. | RAG, chunking, embedding, contextual | cs.CL, cs.IR | Updated July 2025 | 2025.07 |
+| arXiv(v1) 2025 | [Rethinking Chunk Size for Long-Document Retrieval: Multi-Dataset Analysis](http://arxiv.org/abs/2505.21700v2) | Authors TBD, et al. | RAG, chunking, chunk size, retrieval | cs.CL, cs.IR | 64-1024 tokens optimal | 2025.05 |
+| arXiv(v1) 2025 | [CDTA: Cross-Document Topic-Aligned Chunking for RAG](http://arxiv.org/abs/2601.05265v1) | Authors TBD, et al. | RAG, chunking, cross-document, topic alignment | cs.CL, cs.IR | 0.93 faithfulness on HotpotQA | 2025.11 |
+| arXiv(v1) 2026 | [L-RAG: Balancing Context and Retrieval with Entropy-Based Lazy Loading](http://arxiv.org/abs/2601.06551v1) | Authors TBD, et al. | RAG, lazy loading, entropy, context | cs.CL, cs.IR |  | 2026.01 |
+| arXiv(v1) 2025 | [Practical Code RAG at Scale: Task-Aware Retrieval Design](http://arxiv.org/abs/2510.20609v1) | Authors TBD, et al. | RAG, code, retrieval, hybrid, dense | cs.CL, cs.IR | BM25 + dense hybrid | 2025.10 |
+| arXiv(v1) 2025 | [ChunkRAG: Novel Context-Aware Chunking for RAG Systems](http://arxiv.org/abs/2501.00045v1) | Authors TBD, et al. | RAG, chunking, context-aware, retrieval | cs.CL, cs.IR |  | 2025.01 |
+| arXiv(v1) 2025 | [RAG-Fusion: Query Expansion and Multi-Source Retrieval](http://arxiv.org/abs/2502.08541v1) | Authors TBD, et al. | RAG, query expansion, multi-source, fusion | cs.CL, cs.IR |  | 2025.02 |
 <!-- TABLE_END: RAG -->
 
 # Agent
@@ -281,6 +291,16 @@ paper stats                               # Statistics
 | arXiv(v1) 2025 | [DeepCode: Open Agentic Coding](http://arxiv.org/abs/2512.07921v1) | Authors TBD, et al. | code agent, agentic coding, open source | cs.SE, cs.AI |  | 2025.12 |
 | arXiv(v1) 2026 | [LLM-Based Agentic Systems for Software Engineering: Challenges and Opportunities](http://arxiv.org/abs/2601.09822v1) | Authors TBD, et al. | code agent, software engineering, survey | cs.SE, cs.AI |  | 2026.01 |
 | arXiv(v1) 2025 | [SWE-RL: Training Superintelligent Software Agents through Self-Play](http://arxiv.org/abs/2512.18552v1) | Authors TBD, et al. | code agent, self-play, RL, software engineering | cs.SE, cs.LG |  | 2025.12 |
+| arXiv(v1) 2025 | [A-MEM: Agentic Memory for LLM Agents](http://arxiv.org/abs/2502.12110v1) | Authors TBD, et al. | agent, memory, agentic, self-organizing | cs.AI, cs.CL |  | 2025.02 |
+| arXiv(v1) 2025 | [MemR3: Memory Retrieval via Reflective Reasoning for LLM Agents](http://arxiv.org/abs/2512.20237v1) | Authors TBD, et al. | agent, memory, retrieval, reflection, reasoning | cs.AI, cs.CL |  | 2025.12 |
+| arXiv(v1) 2025 | [Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects](http://arxiv.org/abs/2512.12818v1) | Authors TBD, et al. | agent, memory, hindsight, reflection | cs.AI, cs.CL |  | 2025.12 |
+| arXiv(v1) 2025 | [BrowserAgent: Web Agents with Human-Inspired Browsing Actions](http://arxiv.org/abs/2510.10666v1) | Authors TBD, et al. | agent, browser, web, automation | cs.AI, cs.CL |  | 2025.10 |
+| arXiv(v1) 2025 | [Building Browser Agents: Architecture, Security, and Practical Solutions](http://arxiv.org/abs/2511.19477v1) | Authors TBD, et al. | agent, browser, security, architecture | cs.AI, cs.CL |  | 2025.11 |
+| arXiv(v1) 2026 | [InfiniteWeb: Scalable Web Environment Synthesis for GUI Agent Training](http://arxiv.org/abs/2601.04126v1) | Authors TBD, et al. | agent, web, GUI, training, environment | cs.CV, cs.AI | 600 tasks across websites | 2026.01 |
+| arXiv(v1) 2025 | [AgentRewardBench: Benchmark for LLM Judges in Web Agent Evaluation](http://arxiv.org/abs/2504.12721v1) | Authors TBD, et al. | agent, benchmark, web, evaluation, reward | cs.AI, cs.CL | 1,302 trajectories | 2025.04 |
+| arXiv(v1) 2025 | [WebRL: Training LLM Web Agents via Self-Evolving Curriculum RL](http://arxiv.org/abs/2505.11451v1) | Authors TBD, et al. | agent, web, RL, curriculum, self-evolving | cs.LG, cs.AI |  | 2025.05 |
+| arXiv(v1) 2025 | [Dark Patterns Impact on LLM-Based Web Agents](http://arxiv.org/abs/2510.18113v1) | Authors TBD, et al. | agent, web, dark patterns, decision making | cs.HC, cs.AI |  | 2025.10 |
+| arXiv(v1) 2025 | [MCP-Bench: Benchmarking Tool-Using LLM Agents](http://arxiv.org/abs/2508.20453v1) | Authors TBD, et al. | agent, benchmark, tool use, MCP | cs.AI, cs.CL |  | 2025.08 |
 <!-- TABLE_END: Agent -->
 
 # Poster
@@ -315,6 +335,17 @@ paper stats                               # Statistics
 | arXiv(v1) 2025 | [Enhancing Agentic RL with Progressive Reward Shaping and VSPO](http://arxiv.org/abs/2512.07478v1) | Authors TBD, et al. | agentic RL, reward shaping, GRPO, tool use | cs.LG, cs.AI |  | 2025.12 |
 | arXiv(v1) 2025 | [Reward Hacking Mitigation using Verifiable Composite Rewards](http://arxiv.org/abs/2509.15557v1) | Authors TBD, et al. | RLHF, reward hacking, RLVR, verification | cs.LG, cs.AI |  | 2025.09 |
 | arXiv(v1) 2025 | [Provably Efficient Online RLHF with One-Pass Reward Modeling](http://arxiv.org/abs/2502.07193v1) | Authors TBD, et al. | online RLHF, reward modeling, efficiency | cs.LG, cs.AI |  | 2025.02 |
+| arXiv(v1) 2025 | [DPO Meets PPO: Reinforced Token Optimization for RLHF](http://arxiv.org/abs/2404.18922v1) | Han Zhong, et al. | agentic RL, DPO, PPO, RLHF, token-level | cs.LG, cs.AI | RTO framework | 2025.04 |
+| arXiv(v1) 2025 | [REINFORCE++: Critic-Free Policy Optimization with Global Advantage Normalization](http://arxiv.org/abs/2501.03262v1) | Authors TBD, et al. | agentic RL, REINFORCE, critic-free, GRPO | cs.LG, cs.AI | Outperforms PPO | 2025.01 |
+| arXiv(v1) 2025 | [OPPO: Accelerating PPO-based RLHF via Pipeline Overlap](http://arxiv.org/abs/2509.25762v1) | Authors TBD, et al. | agentic RL, PPO, RLHF, efficiency, overlap | cs.LG, cs.AI |  | 2025.09 |
+| arXiv(v1) 2025 | [Technical Survey of RL Techniques for Large Language Models](http://arxiv.org/abs/2507.04136v1) | Authors TBD, et al. | agentic RL, survey, PPO, DPO, GRPO | cs.LG, cs.AI |  | 2025.07 |
+| arXiv(v1) 2025 | [RL Foundations for Deep Research Systems: A Survey](http://arxiv.org/abs/2509.06733v1) | Authors TBD, et al. | agentic RL, deep research, survey, post-DeepSeek | cs.LG, cs.AI | Post Feb 2025 papers | 2025.09 |
+| arXiv(v1) 2025 | [PRL: Process Reward Learning Improves LLM Reasoning](http://arxiv.org/abs/2601.10201v1) | Authors TBD, et al. | agentic RL, PRM, process reward, reasoning | cs.LG, cs.AI |  | 2026.01 |
+| arXiv(v1) 2025 | [Hierarchical Multi-Step Reward Models for Enhanced Reasoning](http://arxiv.org/abs/2503.13551v1) | Authors TBD, et al. | agentic RL, reward model, hierarchical, reasoning | cs.LG, cs.AI |  | 2025.03 |
+| arXiv(v1) 2025 | [Comprehensive Survey of Reward Models: Taxonomy and Applications](http://arxiv.org/abs/2504.12328v1) | Authors TBD, et al. | agentic RL, reward model, survey, taxonomy | cs.LG, cs.AI |  | 2025.04 |
+| arXiv(v1) 2025 | [RLSR: Reinforcement Learning with Supervised Reward](http://arxiv.org/abs/2510.14200v1) | Authors TBD, et al. | agentic RL, supervised reward, instruction following | cs.LG, cs.AI |  | 2025.10 |
+| arXiv(v1) 2025 | [On Designing Effective RL Reward at Training Time for LLM Reasoning](http://arxiv.org/abs/2410.15115v1) | Authors TBD, et al. | agentic RL, reward design, reasoning, training | cs.LG, cs.AI |  | 2025.10 |
+| arXiv(v1) 2025 | [Sailing by the Stars: Survey on Reward Models and Learning Strategies](http://arxiv.org/abs/2505.02686v2) | Authors TBD, et al. | agentic RL, reward model, survey, learning | cs.LG, cs.AI |  | 2025.06 |
 <!-- TABLE_END: Agentic-RL -->
 
 # MLLM
@@ -332,4 +363,20 @@ paper stats                               # Statistics
 | arXiv(v1) 2025 | [MT-Video-Bench: Video Understanding Benchmark for MLLMs in Multi-Turn Dialogues](http://arxiv.org/abs/2510.17722v1) | Authors TBD, et al. | MLLM, video understanding, benchmark, multi-turn | cs.CV, cs.CL |  | 2025.10 |
 | arXiv(v1) 2025 | [MVU-Eval: Multi-Video Understanding Evaluation for MLLMs](http://arxiv.org/abs/2511.07250v1) | Authors TBD, et al. | MLLM, multi-video, evaluation, benchmark | cs.CV, cs.CL |  | 2025.11 |
 | arXiv(v1) 2025 | [VideoLLM Benchmarks and Evaluation: A Survey](http://arxiv.org/abs/2505.03829v1) | Authors TBD, et al. | MLLM, video, benchmark, evaluation, survey | cs.CV, cs.CL |  | 2025.05 |
+| arXiv(v1) 2025 | [MM-Spatial: Exploring 3D Spatial Understanding in Multimodal LLMs](http://arxiv.org/abs/2503.13111v1) | Erik Daxberger, et al. | MLLM, 3D, spatial, understanding, benchmark | cs.CV, cs.CL | ICCV 2025 | 2025.03 |
+| arXiv(v1) 2025 | [SpatialThinker: Reinforcing 3D Reasoning in Multimodal LLMs via Spatial Rewards](http://arxiv.org/abs/2511.07403v1) | Authors TBD, et al. | MLLM, 3D reasoning, spatial, RL | cs.CV, cs.CL | Outperforms GPT-4o | 2025.11 |
+| arXiv(v1) 2025 | [MLLM-For3D: Adapting Multimodal Large Language Model for 3D Reasoning Segmentation](http://arxiv.org/abs/2503.18135v1) | Authors TBD, et al. | MLLM, 3D, segmentation, reasoning | cs.CV |  | 2025.03 |
+| arXiv(v1) 2025 | [SpaceVLLM: Endowing MLLM with Spatio-Temporal Video Grounding](http://arxiv.org/abs/2503.13983v1) | Authors TBD, et al. | MLLM, video, spatio-temporal, grounding | cs.CV, cs.CL |  | 2025.03 |
+| arXiv(v1) 2025 | [Mobile-VideoGPT: Fast and Accurate Video Understanding Language Model](http://arxiv.org/abs/2503.21782v1) | Authors TBD, et al. | MLLM, video, mobile, efficient | cs.CV, cs.CL |  | 2025.03 |
+| arXiv(v1) 2025 (CVPR 2025) | [LLaVA-ST: Multimodal LLM for Fine-Grained Spatial-Temporal Understanding](https://openaccess.thecvf.com/CVPR2025) | Authors TBD, et al. | MLLM, spatial-temporal, video, CVPR | cs.CV | CVPR 2025 | 2025.06 |
+| arXiv(v1) 2025 | [RynnEC: Bringing MLLMs into Embodied World](http://arxiv.org/abs/2508.14160v1) | Authors TBD, et al. | MLLM, embodied, video, spatial reasoning | cs.CV, cs.RO |  | 2025.08 |
+| arXiv(v1) 2025 | [From Indoor to Open World: Revealing the Spatial Reasoning Gap in MLLMs](http://arxiv.org/abs/2512.19683v1) | Authors TBD, et al. | MLLM, spatial reasoning, benchmark, open world | cs.CV, cs.CL |  | 2025.12 |
+| arXiv(v1) 2025 | [Med3DVLM: An Efficient Vision-Language Model for 3D Medical Image Analysis](http://arxiv.org/abs/2503.20047v1) | Authors TBD, et al. | MLLM, medical, 3D, VLM, CT | cs.CV |  | 2025.03 |
+| arXiv(v1) 2025 | [MedBridge: Bridging Foundation Vision-Language Models to Medical Image Diagnosis](http://arxiv.org/abs/2505.21698v1) | Authors TBD, et al. | MLLM, medical, VLM, diagnosis | cs.CV |  | 2025.05 |
+| arXiv(v1) 2025 | [Grounding the Ungrounded: Spectral-Graph Framework for Quantifying Hallucinations in MLLMs](http://arxiv.org/abs/2508.19366v1) | Authors TBD, et al. | MLLM, hallucination, grounding, detection | cs.CV, cs.CL |  | 2025.08 |
+| arXiv(v1) 2025 | [Two Causes, Not One: Rethinking Omission and Fabrication Hallucinations in MLLMs](http://arxiv.org/abs/2509.00371v1) | Authors TBD, et al. | MLLM, hallucination, omission, fabrication | cs.CV, cs.CL |  | 2025.09 |
+| arXiv(v1) 2026 | [Ground What You See: Hallucination-Resistant MLLMs via Caption Feedback](http://arxiv.org/abs/2601.06224v1) | Authors TBD, et al. | MLLM, hallucination, caption feedback, grounding | cs.CV, cs.CL |  | 2026.01 |
+| arXiv(v1) 2025 | [Seeing is Believing: Rich-Context Hallucination Detection via Backward Visual Grounding](http://arxiv.org/abs/2511.12140v1) | Authors TBD, et al. | MLLM, hallucination, detection, visual grounding | cs.CV, cs.CL | Outperforms GPT-4o | 2025.11 |
+| arXiv(v1) 2025 | [MemVR: Memory-Space Visual Retracing for Hallucination Mitigation in MLLMs](http://arxiv.org/abs/2410.03577v1) | Authors TBD, et al. | MLLM, hallucination, mitigation, memory | cs.CV, cs.CL | Plug-and-play | 2025.10 |
+| CVPR25 (CVPR 2025) | [Seeing Far and Clearly: Mitigating Hallucinations in MLLMs with Attention Reweighting](https://openaccess.thecvf.com/CVPR2025) | Authors TBD, et al. | MLLM, hallucination, attention, CVPR | cs.CV | CVPR 2025 | 2025.06 |
 <!-- TABLE_END: MLLM -->
