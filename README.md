@@ -172,6 +172,35 @@ paper stats
 | CHI25 | [Human Robot Interaction for Blind and Low Vision People: A Systematic Literature Review](https://doi.org/10.1145/3706598.3713438) | Authors TBD, et al. | robot, accessibility, BLV, HRI, survey |  |  | 2025.04 |
 | CHI25 | [TableNarrator: Making Image Tables Accessible to Blind and Low Vision People](https://doi.org/10.1145/3706598.3714329) | Authors TBD, et al. | accessibility, BLV, tables, image, data |  |  | 2025.04 |
 | CHI25 | [DanmuA11y: Making Time-Synced Video Comments Accessible to BLV Users](https://doi.org/10.1145/3706598.3713496) | Authors TBD, et al. | accessibility, BLV, video, Danmu, audio |  |  | 2025.04 |
+| Ubicomp25 | [HandSAW: Wearable Hand-based Event Recognition via On-Body Surface Acoustic Waves](https://doi.org/10.1145/3712276) | Kaylee Yaxuan Li, et al. | SAW, wrist, hand, object interaction, wearable |  | IMWUT Vol 9 Issue 1 | 2025.03 |
+| Ubicomp25 | [Respiration Rate Estimation via Smartwatch-based PPG and Accelerometer Data](https://doi.org/10.1145/3712280) | Authors TBD, et al. | respiration, smartwatch, PPG, accelerometer, transfer learning |  | IMWUT Vol 9 Issue 1 | 2025.03 |
+| Ubicomp25 | [Ring-a-Pose: A Ring for Continuous Hand Pose Tracking](https://doi.org/10.1145/3699741) | Authors TBD, et al. | ring, hand pose, tracking, wearable |  | IMWUT | 2025.03 |
+| Ubicomp25 | [Sleep Monitoring with Continuous Posture, Heart Rate, Respiratory Rate Tracking](https://doi.org/10.1145/3749461) | Authors TBD, et al. | sleep, posture, heart rate, respiration, monitoring |  | IMWUT Vol 9 Issue 3 | 2025.09 |
+| Ubicomp25 | [Contact-free Vital Signs Monitoring and Separating Distinct Vital Signs](https://doi.org/10.1145/3749496) | Authors TBD, et al. | vital signs, contactless, respiration, monitoring |  | IMWUT Vol 9 Issue 3 | 2025.09 |
+| Ubicomp25 | [Mindfulness Meditation and Respiration: Accelerometer-based Respiration Rate Estimation](https://doi.org/10.1145/3749498) | Authors TBD, et al. | mindfulness, respiration, accelerometer, meditation |  | IMWUT Vol 9 Issue 3 | 2025.09 |
+| CHI25 | [RadEye: Tracking Eye Motion Using FMCW Radar](https://doi.org/10.1145/3706598.3713775) | Authors TBD, et al. | radar, eye tracking, FMCW, gaze |  |  | 2025.04 |
+| CHI25 | [Online-EYE: Multimodal Implicit Eye Tracking Calibration for XR](https://doi.org/10.1145/3706598.3713461) | Authors TBD, et al. | eye tracking, XR, VR, calibration, implicit |  |  | 2025.04 |
+| CHI25 | [COMETIC: Enhancing Smartphone Eye Tracking with Cursor-Based Implicit Calibration](https://doi.org/10.1145/3706598.3713936) | Authors TBD, et al. | eye tracking, smartphone, calibration, cursor |  | 27.2% improvement | 2025.04 |
+| CHI25 | [Lookee: Gaze Tracking-based Infant Vocabulary Comprehension Assessment](https://doi.org/10.1145/3706598.3713386) | Authors TBD, et al. | gaze, infant, vocabulary, assessment, AI |  |  | 2025.04 |
+| CHI25 | [SocialEyes: Scaling Mobile Eye-tracking to Multi-person Social Settings](https://doi.org/10.1145/3706598.3713910) | Authors TBD, et al. | eye tracking, mobile, social, multi-person |  |  | 2025.04 |
+| CHI25 | [M2SILENT: Enabling Multi-user Silent Speech Interactions via Multi-directional Speakers](https://doi.org/10.1145/3706598.3714174) | Authors TBD, et al. | silent speech, multi-user, speaker, shared space |  |  | 2025.04 |
+| CHI25 | [Spatial Speech Translation: Translating Across Space With Binaural Hearables](https://doi.org/10.1145/3706598.3713745) | Authors TBD, et al. | speech translation, binaural, hearables, spatial audio |  |  | 2025.04 |
+| CHI25 | [Sonora: Human-AI Co-Creation of 3D Audio Worlds](https://doi.org/10.1145/3706598.3713316) | Fernanda M De La Torre, et al. | AI, audio, 3D, soundscape, LLM, co-creation |  | Uses LLM for voice commands | 2025.04 |
+| CHI25 | [The Voice of Endo: Leveraging Speech for Illness Flare-up Forecasting](https://doi.org/10.1145/3706598.3714040) | Authors TBD, et al. | speech, health, voice, endometriosis, forecasting |  |  | 2025.04 |
+| CHI25 | [SPECTRA: Personalizable Sound Recognition for DHH Users through Interactive ML](https://doi.org/10.1145/3706598.3713294) | Steven M. Goodman, et al. | sound recognition, DHH, accessibility, interactive ML |  |  | 2025.04 |
+| CHI25 | [LLM Powered Text Entry Decoding and Flexible Typing on Smartphones](https://doi.org/10.1145/3706598.3714314) | Authors TBD, et al. | LLM, text entry, typing, smartphone, gesture |  | 93.1% top-1 accuracy | 2025.04 |
+| CHI25 | [Seeing and Touching the Air: Eye-Hand Coordination in Mid-Air Gesture Typing for MR](https://doi.org/10.1145/3706598.3713743) | Authors TBD, et al. | gesture typing, MR, mid-air, eye-hand coordination |  |  | 2025.04 |
+| CHI25 | [PropType: Everyday Props as Typing Surfaces in Augmented Reality](https://doi.org/10.1145/3706598.3714056) | Authors TBD, et al. | AR, typing, props, text entry |  |  | 2025.04 |
+| CHI25 | [FineType: Fine-grained Tapping Gesture Recognition for Text Entry](https://doi.org/10.1145/3706598.3714278) | Authors TBD, et al. | tapping, gesture, text entry, IMU, wristband |  |  | 2025.04 |
+| CHI25 | [Exploring Mobile Touch Interaction with Large Language Models](https://doi.org/10.1145/3706598.3713554) | Authors TBD, et al. | LLM, touch, mobile, gesture, interaction |  |  | 2025.04 |
+| CHI25 | [Tap&Say: Touch Location-Informed LLM for Multimodal Text Correction](https://doi.org/10.1145/3706598.3713376) | Authors TBD, et al. | LLM, touch, voice, multimodal, text correction |  |  | 2025.04 |
+| CHI25 | [MotionBlocks: Modular Geometric Motion Remapping for Accessible VR](https://doi.org/10.1145/3706598.3713837) | Authors TBD, et al. | VR, accessibility, motion, remapping, limited mobility |  |  | 2025.04 |
+| CHI25 | [Your Hands Can Tell: Detecting Redirected Hand Movements in VR](https://doi.org/10.1145/3706598.3713679) | Authors TBD, et al. | VR, hand, redirection, detection |  |  | 2025.04 |
+| CHI25 | [Spatial Hand Actions: Hand Actions for Spatial Thinking in 3D Assembling](https://doi.org/10.1145/3706598.3713424) | Authors TBD, et al. | hand, spatial, 3D, assembling, gesture |  |  | 2025.04 |
+| CHI25 | [SpellRing: Recognizing Continuous Fingerspelling in ASL using a Ring](https://doi.org/10.1145/3706598.3713721) | Authors TBD, et al. | ring, ASL, sign language, fingerspelling, wearable |  |  | 2025.04 |
+| CHI25 | [Effects of Acoustic Transparency of Wearable Audio Devices on Audio AR](https://doi.org/10.1145/3706598.3713907) | Yuki Watanabe, et al. | audio AR, wearable, acoustic transparency, hearables |  |  | 2025.04 |
+| CHI25 | [Designing Accessible Audio Nudges for Voice Interfaces](https://doi.org/10.1145/3706598.3713563) | Hira Jamshed, et al. | voice interface, audio, nudging, older adults, accessibility |  |  | 2025.04 |
+| CHI25 | [Weaving Sound Information to Support Real-Time Sensemaking for DHH Users](https://doi.org/10.1145/3706598.3714268) | Jeremy Zhengqi Huang, et al. | sound, DHH, accessibility, AI, sensemaking |  |  | 2025.04 |
 <!-- TABLE_END: HCI -->
 
 # LLM
