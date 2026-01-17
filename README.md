@@ -109,6 +109,16 @@ paper stats
 | CHI25 | [Interactive Debugging and Steering of Multi-Agent AI Systems](https://doi.org/10.1145/3706598.3713581) | Will Epperson, et al. | LLM, agent, multi-agent, debugging, HCI |  |  | 2025.04 |
 | CHI25 | [Understanding the LLM-ification of CHI: Unpacking the Impact of LLMs at CHI through a Systematic Literature Review](https://doi.org/10.1145/3706598.3713726) | Rock Yuren Pang, et al. | LLM, HCI, CHI, survey, systematic review |  |  | 2025.04 |
 | CHI25 | [Users' Expectations and Practices with Agent Memory](https://doi.org/10.1145/3706599.3720158) | Brennan Jones, et al. | LLM, agent, memory, user expectations, HCI |  |  | 2025.04 |
+| arXiv(v4) 2025 | [LLM-Based Human-Agent Collaboration and Interaction Systems: A Survey](http://arxiv.org/abs/2505.00753v4) | Hengyi Peng, et al. | LLM, agent, human-agent collaboration, HCI, survey | cs.HC, cs.AI, cs.CL |  | 2025.05 |
+| arXiv(v1) 2025 | [Through the Lens of Human-Human Collaboration: A Configurable Research Platform for Exploring Human-Agent Collaboration](http://arxiv.org/abs/2509.18008v1) | Bingsheng Yao, et al. | LLM, agent, human-agent collaboration, CSCW, platform | cs.HC, cs.AI, cs.CL |  | 2025.09 |
+| arXiv(v1) 2025 | [MobilePoser: Real-Time Full-Body Pose Estimation and 3D Human Translation from IMUs in Mobile Consumer Devices](http://arxiv.org/abs/2504.12492v1) | Vimal Mollyn, et al. | IMU, pose estimation, mobile, consumer device, real-time | cs.CV, cs.HC |  | 2025.04 |
+| arXiv(v1) 2025 | [BaroPoser: Real-time Human Motion Tracking from IMUs and Barometers in Everyday Devices](http://arxiv.org/abs/2508.03313v1) | Riku Arakawa, et al. | IMU, barometer, pose estimation, motion tracking | cs.CV, cs.HC |  | 2025.08 |
+| arXiv(v1) 2024 | [EMHI: A Multimodal Egocentric Human Motion Dataset with HMD and Body-Worn IMUs](http://arxiv.org/abs/2408.17168v1) | Zelin Ye, et al. | IMU, VR, HMD, dataset, egocentric, pose estimation | cs.CV, cs.HC | 885 sequences, 58 subjects, 28.5 hours | 2024.08 |
+| arXiv(v1) 2025 | [Garment Inertial Poser: Human Motion Capture from Loose and Sparse Inertial Sensors with Garment-aware Diffusion Models](http://arxiv.org/abs/2506.15290v1) | Tao Wang, et al. | IMU, pose estimation, loose sensor, diffusion, garment | cs.CV |  | 2025.06 |
+| arXiv(v1) 2025 | [Ego4o: Egocentric Human Motion Capture and Understanding from Multi-Modal Input](http://arxiv.org/abs/2504.08449v1) | Jian Wang, et al. | egocentric, IMU, pose estimation, multimodal, VR | cs.CV, cs.HC |  | 2025.04 |
+| arXiv(v1) 2025 | [DiffCap: Diffusion-based Real-time Human Motion Capture using Sparse IMUs and a Monocular Camera](http://arxiv.org/abs/2508.06139v1) | Zongmian Li, et al. | IMU, diffusion, motion capture, real-time, camera | cs.CV |  | 2025.08 |
+| arXiv(v2) 2026 | [LLM-Guided Exemplar Selection for Few-Shot Wearable-Sensor Human Activity Recognition](http://arxiv.org/abs/2512.22385v2) | Elsen Ronando, et al. | LLM, HAR, wearable, few-shot, exemplar selection | cs.CL, cs.AI, cs.CV | 88.78% F1 on UCI-HAR | 2025.12 |
+| arXiv(v1) 2025 | [SensorLM: Learning the Language of Wearable Sensors](http://arxiv.org/abs/2506.09108v1) | Tong Xia, et al. | wearable, sensor, LLM, activity recognition, foundation model | cs.LG, cs.HC |  | 2025.06 |
 <!-- TABLE_END: HCI -->
 
 # LLM
@@ -133,6 +143,10 @@ paper stats
 | arXiv(v1) 2024 | [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](http://arxiv.org/abs/2411.17465v1) | Kevin Qinghong Lin, et al. | LLM, UI, vision-language, GUI | cs.CV, cs.AI, cs.CL, cs.HC | Technical Report. Github: https://github.com/showlab/ShowUI | 2024.11 |
 | arXiv(v1) 2024 | [OS-ATLAS: A Foundation Action Model for Generalist GUI Agents](http://arxiv.org/abs/2410.23218v1) | Zhiyong Wu, et al. | LLM, agent, computer use, GUI, foundation model | cs.CL, cs.CV, cs.HC |  | 2024.10 |
 | arXiv(v1) 2024 | [Unlocking the Power of Environment Assumptions for Unit Proofs](http://arxiv.org/abs/2409.12269v1) | Siddharth Priya, et al. | LLM, GUI, agent, survey | cs.SE, cs.PL | SEFM 2024 | 2024.09 |
+| arXiv(v1) 2025 (WACV 2026) | [AFRAgent: An Adaptive Feature Renormalization Based High Resolution Aware GUI agent](http://arxiv.org/abs/2512.00846v1) | Neeraj Anand, et al. | GUI agent, VLM, smartphone automation, multimodal | cs.CV | WACV 2026 | 2025.12 |
+| arXiv(v2) 2024 (ACL 2025) | [GUICourse: From General Vision Language Models to Versatile GUI Agents](http://arxiv.org/abs/2406.11317v2) | Wentong Chen, et al. | GUI agent, VLM, training data, OCR, grounding | cs.CV, cs.CL, cs.HC | ACL 2025 | 2024.06 |
+| arXiv(v2) 2025 | [Mobile-Agent-v3: Fundamental Agents for GUI Automation](http://arxiv.org/abs/2508.15144v2) | Junyang Wang, et al. | GUI agent, mobile, smartphone automation, VLM | cs.CV, cs.AI |  | 2025.08 |
+| arXiv(v1) 2026 | [GUI-Eyes: Tool-Augmented Perception for Visual Grounding in GUI Agents](http://arxiv.org/abs/2601.09770v1) | Shuofei Qiao, et al. | GUI agent, visual grounding, tool use, perception | cs.CV, cs.AI |  | 2026.01 |
 <!-- TABLE_END: LLM -->
 
 # RAG
@@ -142,6 +156,8 @@ paper stats
 | arXiv(v6) 2024 | [Health-LLM: Personalized Retrieval-Augmented Disease Prediction System](https://arxiv.org/abs/2402.00746) | Qinkai Yu, et al. | RAG, XGBoost, AutoML | cs.CL |  | 2024.03 |
 | arXiv(v1) 2024 | CRUD-RAG: A Comprehensive Chinese Benchmark for Retrieval-Augmented Generation of Large Language Models |  | retrieval-augmented generation, large language models, evaluation |  |  | 2024.02 |
 | arXiv(v1) 2024 | LLM-Augmented Retrieval: Enhancing Retrieval Models Through Language Models and Doc-Level Embedding |  | relevant query, doc-Level embedding, embedding-based retrieval, dense retrieval |  |  | 2024.04 |
+| arXiv(v1) 2025 | [Ask in Any Modality: A Comprehensive Survey on Multimodal Retrieval-Augmented Generation](http://arxiv.org/abs/2502.08826v1) | Zihan Wang, et al. | multimodal, RAG, retrieval, survey, LLM | cs.CL, cs.IR |  | 2025.02 |
+| arXiv(v1) 2025 | [A Survey of Multimodal Retrieval-Augmented Generation](http://arxiv.org/abs/2504.08748v1) | Zihan Zhao, et al. | multimodal, RAG, retrieval, survey, vision-language | cs.CV, cs.CL |  | 2025.04 |
 <!-- TABLE_END: RAG -->
 
 # Agent
@@ -164,6 +180,12 @@ paper stats
 | arXiv(v1) 2025 | [Understanding Tool-Integrated Reasoning](http://arxiv.org/abs/2508.19201v1) | Heng Lin, et al. | LLM, agent, tool use, reasoning, TIR | cs.LG, cs.AI, stat.ML |  | 2025.08 |
 | arXiv(v2) 2025 | [Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](http://arxiv.org/abs/2502.04644v2) | Junde Wu, et al. | LLM, agent, agentic reasoning, tool use, framework | cs.AI, cs.CL | ACL 2025 | 2025.07 |
 | arXiv(v1) 2025 | [From LLM Reasoning to Autonomous AI Agents: A Comprehensive Review](http://arxiv.org/abs/2504.19678v1) | Mohamed Amine Ferrag, et al. | LLM, agent, survey, autonomous, comprehensive review | cs.AI, cs.LG |  | 2025.04 |
+| arXiv(v1) 2025 | [ReMA: Unlocking the Power of Multi-Agent LLM for Reasoning: From Lazy Agents to Deliberation](http://arxiv.org/abs/2511.02303v1) | Zhiwei Zhang, et al. | multi-agent, LLM, reasoning, lazy agent, deliberation | cs.AI, cs.CL |  | 2025.11 |
+| arXiv(v1) 2025 | [MAR: Multi-Agent Reflexion Improves Reasoning Abilities in LLMs](http://arxiv.org/abs/2512.20845v1) | Xinyuan Lu, et al. | multi-agent, LLM, reflexion, reasoning, debate | cs.CL, cs.AI |  | 2025.12 |
+| arXiv(v1) 2025 | [LongVideoAgent: Multi-Agent Reasoning with Long Videos](http://arxiv.org/abs/2512.20618v1) | Jingyi Zhang, et al. | multi-agent, video understanding, LLM, reasoning | cs.CV, cs.AI |  | 2025.12 |
+| arXiv(v1) 2025 | [LLM-based Agentic Reasoning Frameworks: A Survey from Methods to Scenarios](http://arxiv.org/abs/2508.17692v1) | Bingxi Zhao, et al. | LLM, agent, reasoning, survey, framework | cs.AI, cs.CL |  | 2025.08 |
+| arXiv(v4) 2025 | [Towards Embodied Agentic AI: Review and Classification of LLM- and VLM-Driven Robot Autonomy and Interaction](http://arxiv.org/abs/2508.05294v4) | Harshitha Manoj, et al. | embodied AI, robot, LLM, VLM, autonomy, survey | cs.RO, cs.AI |  | 2025.08 |
+| arXiv(v3) 2025 | [Embodied AI Agents: Modeling the World](http://arxiv.org/abs/2506.22355v3) | Pascale Fung, et al. | embodied AI, world model, VLM, robot, avatar | cs.AI | Meta AI | 2025.07 |
 <!-- TABLE_END: Agent -->
 
 # Poster
