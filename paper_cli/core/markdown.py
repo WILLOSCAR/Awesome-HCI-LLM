@@ -5,6 +5,8 @@ import pandas as pd
 from pathlib import Path
 from typing import Dict, Optional
 
+from ..utils.date import date_key
+
 
 class MarkdownGenerator:
     """Markdown 表格生成器，负责更新 README.md。"""
@@ -31,6 +33,18 @@ class MarkdownGenerator:
         for topic, group in df.groupby('Topic'):
             if group.empty:
                 continue
+
+            # Default: show newest papers first (invalid/missing dates go last).
+            group = group.copy()
+            group["__date_sort"] = group["Date"].apply(
+                lambda d: (lambda k: (k[0] * 100 + k[1]) if k else -1)(date_key(str(d)))
+            )
+            group = group.sort_values(
+                by=["__date_sort", "Title"],
+                ascending=[False, True],
+                kind="mergesort",
+            )
+            group.drop(columns=["__date_sort"], inplace=True)
 
             # 表格头
             md_table = "| Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |\n"
