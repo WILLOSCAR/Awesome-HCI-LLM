@@ -6,6 +6,7 @@ from pathlib import Path
 
 from ..core.storage import PaperStorage
 from ..utils.display import display_papers_table, print_info
+from ..utils.date import date_key
 
 
 def list_papers(
@@ -29,7 +30,8 @@ def list_papers(
 
     # 按日期排序
     if recent:
-        papers = sorted(papers, key=lambda p: p.date or "", reverse=True)
+        # Put invalid/missing dates last.
+        papers = sorted(papers, key=lambda p: date_key(p.date) or (-1, -1), reverse=True)
 
     # 限制结果数量
     if limit > 0 and len(papers) > limit:

@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Optional, Dict
 from collections import Counter
 from .models import Paper
+from ..utils.date import date_key
 
 
 class PaperStorage:
@@ -39,19 +40,61 @@ class PaperStorage:
             writer.writerow(paper.to_csv_row())
 
     def exists(self, link: str) -> bool:
-        """检查论文是否已存在（通过链接判断）。"""
+        """检查论文是否已存在。
+
+        Notes:
+            - arXiv IDs are only extracted/compared when the input looks like an arXiv link/ID.
+              (Avoid false positives on ACM DOIs like 10.1145/3706598.3713728.)
+            - DOIs are compared against stored DOI fields to avoid duplicates across different URLs.
+        """
         if not link:
             return False
-        papers = self.load_all()
-        # 提取 arXiv ID 进行比较
+
         import re
-        link_id = re.search(r'(\d{4}\.\d{4,5})', link)
-        if link_id:
-            link_id = link_id.group(1)
+
+        def extract_arxiv_id(s: str) -> Optional[str]:
+            if not s:
+                return None
+            s_stripped = str(s).strip()
+            s_lower = s_stripped.lower()
+            if (
+                "arxiv.org" in s_lower
+                or s_lower.startswith("arxiv:")
+                or re.fullmatch(r"\d{4}\.\d{4,5}(v\d+)?", s_stripped)
+            ):
+                m = re.search(r"(\d{4}\.\d{4,5})", s_stripped)
+                return m.group(1) if m else None
+            return None
+
+        def extract_doi(s: str) -> Optional[str]:
+            if not s:
+                return None
+            m = re.search(r"(10\.\d{4,9}/[^\s]+)", str(s), flags=re.IGNORECASE)
+            if not m:
+                return None
+            return m.group(1).rstrip(".,;:").lower()
+
+        papers = self.load_all()
+
+        # Prefer DOI-based matching when possible.
+        link_doi = extract_doi(link)
+        if link_doi:
             for paper in papers:
-                paper_id = re.search(r'(\d{4}\.\d{4,5})', paper.link)
-                if paper_id and paper_id.group(1) == link_id:
+                if paper.doi and paper.doi.strip().lower() == link_doi:
                     return True
+                paper_link_doi = extract_doi(paper.link)
+                if paper_link_doi and paper_link_doi == link_doi:
+                    return True
+
+        # arXiv-based matching (only when the input is arXiv).
+        link_arxiv_id = extract_arxiv_id(link)
+        if link_arxiv_id:
+            for paper in papers:
+                paper_arxiv_id = extract_arxiv_id(paper.link)
+                if paper_arxiv_id and paper_arxiv_id == link_arxiv_id:
+                    return True
+
+        # Fallback: exact link match.
         return any(paper.link == link for paper in papers)
 
     def search(
@@ -95,10 +138,19 @@ class PaperStorage:
                 continue
 
             # 日期范围过滤
-            if date_from and paper.date and paper.date < date_from:
-                continue
-            if date_to and paper.date and paper.date > date_to:
-                continue
+            if date_from or date_to:
+                p_key = date_key(paper.date)
+                # If a date filter is requested, rows without a valid date are excluded.
+                if not p_key:
+                    continue
+
+                from_key = date_key(date_from) if date_from else None
+                to_key = date_key(date_to) if date_to else None
+
+                if from_key and p_key < from_key:
+                    continue
+                if to_key and p_key > to_key:
+                    continue
 
             results.append(paper)
 

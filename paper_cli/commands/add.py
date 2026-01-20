@@ -41,7 +41,7 @@ def prompt_manual_input(link: str, topic: str, custom_tag: Optional[str] = None)
 
 def add_paper(
     link: str = typer.Argument(..., help="Paper URL (arXiv, ACM, IEEE) or arXiv ID"),
-    topic: str = typer.Argument(..., help="Topic (HCI/LLM/RAG/Agent)"),
+    topic: str = typer.Argument(..., help="Topic (free-form, e.g., Memory/Personalization/LLM/MLLM)"),
     tag: Optional[str] = typer.Option(None, "-t", "--tag", help="Custom tags (comma-separated)"),
     note: Optional[str] = typer.Option(None, "-n", "--note", help="Additional notes"),
     source: Optional[str] = typer.Option(None, "-s", "--source", help="Custom source (e.g., 'CHI 2024')"),

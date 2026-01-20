@@ -5,6 +5,7 @@ from pathlib import Path
 
 from ..core.storage import PaperStorage
 from ..utils.display import display_stats
+from ..utils.date import date_key
 
 
 def show_stats(
@@ -20,7 +21,13 @@ def show_stats(
     tags = storage.get_all_tags()
 
     # 计算日期范围
-    dates = [p.date for p in papers if p.date]
-    date_range = (min(dates) if dates else None, max(dates) if dates else None)
+    parsed_dates = [date_key(p.date) for p in papers]
+    valid_dates = [d for d in parsed_dates if d]
+    if valid_dates:
+        min_y, min_m = min(valid_dates)
+        max_y, max_m = max(valid_dates)
+        date_range = (f"{min_y:04d}.{min_m:02d}", f"{max_y:04d}.{max_m:02d}")
+    else:
+        date_range = (None, None)
 
     display_stats(total, topics, tags, date_range)

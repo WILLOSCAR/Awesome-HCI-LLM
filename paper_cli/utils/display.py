@@ -37,7 +37,8 @@ def display_papers_table(
     table.add_column("#", style="dim", width=4)
     table.add_column("Title", style="cyan", max_width=50)
     table.add_column("Tags", style="green", max_width=30)
-    table.add_column("Source", style="magenta", max_width=20)
+    # Show IMWUT volume/issue for UbiComp papers (journal-style continuous issues).
+    table.add_column("Source", style="magenta", max_width=32)
 
     if show_all:
         table.add_column("Authors", max_width=25)
@@ -48,12 +49,16 @@ def display_papers_table(
         # 截断过长的标题
         title_display = paper.title[:47] + "..." if len(paper.title) > 50 else paper.title
 
+        source_display = paper.source
+        if paper.journal_ref and paper.journal_ref.strip().startswith("IMWUT"):
+            source_display = f"{paper.source} ({paper.journal_ref.strip()})"
+
         if show_all:
             table.add_row(
                 str(i),
                 title_display,
                 paper.tag,
-                paper.source,
+                source_display,
                 paper.authors,
                 paper.topic,
                 paper.date
@@ -63,7 +68,7 @@ def display_papers_table(
                 str(i),
                 title_display,
                 paper.tag,
-                paper.source
+                source_display
             )
 
     console.print(table)

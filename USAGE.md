@@ -66,7 +66,7 @@ paper add <link> <topic> [OPTIONS]
 | Argument | Description |
 |----------|-------------|
 | `link` | Paper URL or ID (arXiv, ACM, IEEE, DOI) |
-| `topic` | Category (HCI / LLM / RAG / Agent) |
+| `topic` | Category (free-form, e.g., HCI / LLM / RAG / Agent / Memory / Personalization / MLLM) |
 
 **Options**:
 | Option | Short | Description |

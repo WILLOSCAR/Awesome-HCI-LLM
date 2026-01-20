@@ -162,7 +162,10 @@ class MarkdownGenerator:
 
             if pattern.search(content):
                 # 已存在标记，替换内容
-                content = pattern.sub(f"{start_marker}\n{table}{end_marker}", content)
+                # Use a function replacement so backslashes in table content (e.g., LaTeX \href)
+                # are not treated as regex replacement escapes.
+                replacement = f"{start_marker}\n{table}{end_marker}"
+                content = pattern.sub(lambda _m: replacement, content)
             else:
                 # 不存在标记，在文件末尾添加新 section
                 content += f"\n# {topic}\n{start_marker}\n{table}{end_marker}\n"

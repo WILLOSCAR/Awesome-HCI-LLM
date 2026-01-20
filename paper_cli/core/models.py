@@ -17,7 +17,7 @@ class Paper(BaseModel):
     subjects: str = ""         # arXiv 分类
     additional_info: str = ""  # 附加信息
     date: str = ""             # 日期 (YYYY.MM)
-    topic: str = ""            # 主题分类 (HCI/LLM/RAG/Agent)
+    topic: str = ""            # 主题分类 (free-form; e.g., Memory/Personalization/MLLM)
 
     @classmethod
     def from_csv_row(cls, row: dict) -> "Paper":

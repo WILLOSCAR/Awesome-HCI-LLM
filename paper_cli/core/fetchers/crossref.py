@@ -1,6 +1,7 @@
 """CrossRef-based paper fetcher for ACM, IEEE, and other DOI sources."""
 
 import re
+import html
 import requests
 from typing import Optional
 
@@ -12,6 +13,36 @@ class CrossRefFetcher(BaseFetcher):
     """Fetcher for papers using CrossRef API (ACM, IEEE, etc.)."""
 
     CROSSREF_API = "https://api.crossref.org/works/"
+    _IMWUT_ISSN = "2474-9567"
+
+    def _normalize_title(self, title: str) -> str:
+        """Normalize CrossRef titles (strip HTML and collapse whitespace)."""
+        if not title:
+            return ""
+        title = re.sub(r"<[^>]+>", "", title)
+        # Crossref sometimes returns escaped entities like "&amp;".
+        title = html.unescape(title)
+        title = re.sub(r"\s+", " ", title).strip()
+        return title
+
+    def _is_imwut(self, data: dict) -> bool:
+        """Detect IMWUT (Proceedings of the ACM on IMWUT / UbiComp journal track)."""
+        issns = [str(x) for x in (data.get("ISSN") or [])]
+        if self._IMWUT_ISSN in issns:
+            return True
+        container = (data.get("container-title") or [""])[0]
+        return "Interactive, Mobile, Wearable and Ubiquitous Technologies" in str(container)
+
+    def _format_imwut_journal_ref(self, data: dict) -> str:
+        """Format IMWUT volume/issue string for Source column parentheses."""
+        volume = data.get("volume")
+        issue = data.get("issue")
+        ref = "IMWUT"
+        if volume:
+            ref += f" Vol {volume}"
+        if issue:
+            ref += f" Issue {issue}"
+        return ref
 
     def can_handle(self, url: str) -> bool:
         """Check if URL is from ACM, IEEE, or contains a DOI."""
@@ -41,15 +72,22 @@ class CrossRefFetcher(BaseFetcher):
         data = response.json().get("message", {})
 
         # Extract metadata
-        title = data.get("title", [""])[0]
+        title = self._normalize_title(data.get("title", [""])[0])
         if not title:
             raise ValueError("No title found in CrossRef response")
 
         authors = self._format_authors(data.get("author", []))
-        venue = self._extract_venue(data)
         year = self._extract_year(data)
         date = self._extract_date(data)
+        venue = self._extract_venue(data)
+
+        journal_ref = ""
         source = f"{venue} {year}" if venue and year else (venue or str(year) or "")
+
+        # UbiComp papers are published in IMWUT by issue; keep that info in Journal_Ref.
+        if self._is_imwut(data):
+            source = f"Ubicomp{year % 100:02d}" if year else "Ubicomp"
+            journal_ref = self._format_imwut_journal_ref(data)
 
         # Detect source type for default tag
         if "10.1145" in doi:
@@ -67,7 +105,7 @@ class CrossRefFetcher(BaseFetcher):
             title=title.replace('\n', ' '),
             authors=authors,
             doi=doi,
-            journal_ref="",
+            journal_ref=journal_ref,
             link=f"https://doi.org/{doi}",
             tag=custom_tag if custom_tag else default_tag,
             subjects="",
