@@ -8,6 +8,7 @@ from rich.markdown import Markdown
 from rich.panel import Panel
 
 from ..core.markdown import MarkdownGenerator
+from ..utils.paths import repo_files
 
 
 console = Console()
@@ -19,8 +20,7 @@ def preview_markdown(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """Preview the Markdown table that will be generated."""
-    csv_path = repo_path / "papers.csv"
-    readme_path = repo_path / "README.md"
+    csv_path, readme_path = repo_files(repo_path)
 
     md_gen = MarkdownGenerator(csv_path, readme_path)
 

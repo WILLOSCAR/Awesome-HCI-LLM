@@ -7,6 +7,7 @@ from pathlib import Path
 from ..core.markdown import MarkdownGenerator
 from ..core.git_ops import GitOperations
 from ..utils.display import print_success, print_error, print_warning, print_info
+from ..utils.paths import repo_files
 
 
 def sync_readme(
@@ -16,8 +17,7 @@ def sync_readme(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """Sync README with CSV and optionally push to git."""
-    csv_path = repo_path / "papers.csv"
-    readme_path = repo_path / "README.md"
+    csv_path, readme_path = repo_files(repo_path)
 
     # 更新 README
     print_info("Updating README.md...")

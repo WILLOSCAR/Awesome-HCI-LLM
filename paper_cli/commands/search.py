@@ -6,6 +6,7 @@ from pathlib import Path
 
 from ..core.storage import PaperStorage
 from ..utils.display import display_papers_table, print_info
+from ..utils.paths import papers_csv_path
 
 
 def search_papers(
@@ -20,7 +21,7 @@ def search_papers(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """Search papers in the library."""
-    csv_path = repo_path / "papers.csv"
+    csv_path = papers_csv_path(repo_path)
     storage = PaperStorage(csv_path)
 
     # 执行搜索

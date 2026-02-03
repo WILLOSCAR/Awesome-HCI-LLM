@@ -11,6 +11,7 @@ from ..core.storage import PaperStorage
 from ..core.markdown import MarkdownGenerator
 from ..core.git_ops import GitOperations
 from ..utils.display import display_paper_detail, print_success, print_error, print_warning, print_info
+from ..utils.paths import repo_files
 
 console = Console()
 
@@ -59,8 +60,7 @@ def add_paper(
     - IEEE: https://ieeexplore.ieee.org/document/xxx
     - Any DOI: https://doi.org/10.xxxx/xxx or 10.xxxx/xxx
     """
-    csv_path = repo_path / "papers.csv"
-    readme_path = repo_path / "README.md"
+    csv_path, readme_path = repo_files(repo_path)
 
     storage = PaperStorage(csv_path)
     registry = FetcherRegistry()

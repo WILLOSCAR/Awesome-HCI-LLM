@@ -15,6 +15,12 @@ class MarkdownGenerator:
         self.csv_path = Path(csv_path)
         self.readme_path = Path(readme_path)
 
+    @staticmethod
+    def _date_sort_value(value: str) -> int:
+        """Return sortable YYYYMM integer, or -1 when invalid/missing."""
+        k = date_key(str(value))
+        return (k[0] * 100 + k[1]) if k else -1
+
     def generate_tables_by_topic(self) -> Dict[str, str]:
         """
         从 CSV 生成按 topic 分组的 Markdown 表格。
@@ -22,8 +28,8 @@ class MarkdownGenerator:
         Returns:
             Dict[topic, markdown_table]
         """
-        df = pd.read_csv(self.csv_path)
-        df.fillna('', inplace=True)
+        # Keep all columns as strings to preserve formatting like 'YYYY.MM'.
+        df = pd.read_csv(self.csv_path, dtype=str, keep_default_na=False)
 
         tables = {}
 
@@ -36,9 +42,10 @@ class MarkdownGenerator:
 
             # Default: show newest papers first (invalid/missing dates go last).
             group = group.copy()
-            group["__date_sort"] = group["Date"].apply(
-                lambda d: (lambda k: (k[0] * 100 + k[1]) if k else -1)(date_key(str(d)))
-            )
+            if "Date" in group.columns:
+                group["__date_sort"] = group["Date"].apply(self._date_sort_value)
+            else:
+                group["__date_sort"] = -1
             group = group.sort_values(
                 by=["__date_sort", "Title"],
                 ascending=[False, True],

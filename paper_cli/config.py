@@ -4,6 +4,13 @@ from pathlib import Path
 from pydantic import BaseModel
 from typing import Optional
 
+try:
+    # Python 3.11+
+    import tomllib  # type: ignore[import-not-found]
+except ModuleNotFoundError:  # pragma: no cover
+    # Python <3.11
+    import tomli as tomllib
+
 
 class Config(BaseModel):
     """CLI 配置。"""
@@ -19,7 +26,6 @@ class Config(BaseModel):
     def load(cls, config_path: Optional[Path] = None) -> "Config":
         """加载配置文件。"""
         if config_path and config_path.exists():
-            import tomllib
             with open(config_path, 'rb') as f:
                 data = tomllib.load(f)
             return cls(**data)
@@ -32,7 +38,6 @@ class Config(BaseModel):
 
         for path in default_paths:
             if path.exists():
-                import tomllib
                 with open(path, 'rb') as f:
                     data = tomllib.load(f)
                 return cls(**data)

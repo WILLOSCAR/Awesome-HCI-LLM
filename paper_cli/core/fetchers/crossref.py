@@ -4,6 +4,7 @@ import re
 import html
 import requests
 from typing import Optional
+from urllib.parse import quote
 
 from . import BaseFetcher
 from ..models import Paper
@@ -14,6 +15,16 @@ class CrossRefFetcher(BaseFetcher):
 
     CROSSREF_API = "https://api.crossref.org/works/"
     _IMWUT_ISSN = "2474-9567"
+    _DOI_RE = re.compile(r"(10\.\d{4,9}/[^\s\"'<>]+)", re.IGNORECASE)
+
+    def _clean_doi(self, doi: str) -> str:
+        """Clean a DOI token extracted from text/URLs."""
+        if not doi:
+            return ""
+        doi = doi.strip()
+        # IEEE pages may embed DOI inside URLs with extra query params.
+        doi = re.split(r"[&?]", doi, maxsplit=1)[0]
+        return doi.rstrip(".,;:")
 
     def _normalize_title(self, title: str) -> str:
         """Normalize CrossRef titles (strip HTML and collapse whitespace)."""
@@ -61,7 +72,7 @@ class CrossRefFetcher(BaseFetcher):
 
         # Fetch from CrossRef
         response = requests.get(
-            f"{self.CROSSREF_API}{doi}",
+            f"{self.CROSSREF_API}{quote(doi)}",
             headers={"Accept": "application/json"},
             timeout=10
         )
@@ -92,13 +103,10 @@ class CrossRefFetcher(BaseFetcher):
         # Detect source type for default tag
         if "10.1145" in doi:
             default_tag = "ACM"
-            source_type = "ACM"
         elif "10.1109" in doi:
             default_tag = "IEEE"
-            source_type = "IEEE"
         else:
             default_tag = "DOI"
-            source_type = "DOI"
 
         return Paper(
             source=source,
@@ -117,36 +125,65 @@ class CrossRefFetcher(BaseFetcher):
     def _extract_doi(self, url: str) -> Optional[str]:
         """Extract DOI from various URL formats."""
         # ACM: https://dl.acm.org/doi/10.1145/3544548.3581468
-        # IEEE: https://ieeexplore.ieee.org/document/9878378 (need different handling)
+        # IEEE: https://ieeexplore.ieee.org/document/9878378
         # DOI: https://doi.org/10.1145/xxx
         # Bare: 10.1145/xxx
 
-        # Try to match DOI pattern
-        doi_match = re.search(r'(10\.\d{4,}/[^\s]+)', url)
+        # Try to match DOI pattern anywhere in the input (URLs or bare DOI).
+        doi_match = self._DOI_RE.search(url or "")
         if doi_match:
-            # Clean up trailing punctuation
-            doi = doi_match.group(1).rstrip('.,;:')
-            return doi
+            return self._clean_doi(doi_match.group(1))
 
-        # IEEE document ID - need to convert to DOI
-        ieee_match = re.search(r'ieeexplore\.ieee\.org/document/(\d+)', url)
-        if ieee_match:
-            doc_id = ieee_match.group(1)
-            # Try to get DOI from IEEE API
-            return self._get_ieee_doi(doc_id)
+        # IEEE document URL: fetch the landing page and parse DOI from metadata.
+        if re.search(r"ieeexplore\.ieee\.org/document/\d+", url or ""):
+            return self._fetch_ieee_doi(url)
 
         return None
 
-    def _get_ieee_doi(self, doc_id: str) -> Optional[str]:
-        """Get DOI for IEEE document ID."""
-        # IEEE provides DOI in their API
-        try:
-            # Use a simple heuristic - most IEEE DOIs follow this pattern
-            # For a more robust solution, we'd need IEEE API access
-            # For now, construct a likely DOI
-            return f"10.1109/ACCESS.{doc_id}"
-        except Exception:
+    def _extract_ieee_doi_from_html(self, html_text: str) -> Optional[str]:
+        """Extract DOI from an IEEE Xplore HTML page.
+
+        IEEE pages usually include a standard meta tag: <meta name="citation_doi" ...>
+        """
+        if not html_text:
             return None
+
+        # Prefer the citation_doi meta tag when present.
+        meta = re.search(
+            r'<meta[^>]+name=["\']citation_doi["\'][^>]+content=["\']([^"\']+)["\']',
+            html_text,
+            flags=re.IGNORECASE,
+        )
+        if meta:
+            val = meta.group(1).strip()
+            m = self._DOI_RE.search(val)
+            return self._clean_doi(m.group(1) if m else val)
+
+        # Fallback: look for a single DOI-looking token in the HTML.
+        candidates = {self._clean_doi(m.group(1)) for m in self._DOI_RE.finditer(html_text)}
+        if len(candidates) == 1:
+            return next(iter(candidates))
+        return None
+
+    def _fetch_ieee_doi(self, url: str) -> Optional[str]:
+        """Fetch IEEE Xplore page and parse DOI."""
+        try:
+            resp = requests.get(
+                url,
+                headers={
+                    # Some sites block requests without a UA; keep it simple.
+                    "User-Agent": "paper-cli/0.1.0",
+                    "Accept": "text/html,application/xhtml+xml",
+                },
+                timeout=10,
+            )
+        except requests.RequestException:
+            return None
+
+        if resp.status_code != 200:
+            return None
+
+        return self._extract_ieee_doi_from_html(resp.text)
 
     def _format_authors(self, authors: list) -> str:
         """Format CrossRef author list."""

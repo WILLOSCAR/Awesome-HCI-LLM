@@ -25,8 +25,9 @@ class PaperStorage:
         if not self.csv_path.exists():
             return []
 
-        df = pd.read_csv(self.csv_path)
-        df.fillna('', inplace=True)
+        # Keep all columns as strings (the CSV is a pure metadata store).
+        # This avoids dtype-related warnings/errors when filling missing values.
+        df = pd.read_csv(self.csv_path, dtype=str, keep_default_na=False)
         return [Paper.from_csv_row(row) for _, row in df.iterrows()]
 
     def add_paper(self, paper: Paper) -> None:
