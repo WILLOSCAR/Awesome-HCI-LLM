@@ -703,9 +703,14 @@ paper stats                               # Statistics
 <!-- TABLE_START: Personalization -->
 | Source | Title (Link) | Authors | Tag | Subjects | Additional info | Date |
 |---|---|---|---|---|---|---|
+| arXiv(v1) 2026 | [CURP: Codebook-based Continuous User Representation for Personalized Generation with LLMs](http://arxiv.org/abs/2602.00742v1) | Liang Wang, et al. | arxiv | cs.CL |  | 2026.01 |
 | arXiv(v1) 2026 | [Enriching Semantic Profiles into Knowledge Graph for Recommender Systems Using Large Language Models](http://arxiv.org/abs/2601.08148v1) | Seokho Ahn, et al. | knowledge graph, semantic profiles, recommendation, LLM | cs.IR, cs.AI, cs.LG | Accepted at KDD 2026 | 2026.01 |
+| arXiv(v1) 2026 | [HumanLLM: Towards Personalized Understanding and Simulation of Human Nature](http://arxiv.org/abs/2601.15793v1) | Yuxuan Lei, et al. | arxiv | cs.CL | 12 pages, 5 figures, 7 tables, to be published in KDD 2026 | 2026.01 |
+| arXiv(v1) 2026 | [Improving User Privacy in Personalized Generation: Client-Side Retrieval-Augmented Modification of Server-Side Generated Speculations](http://arxiv.org/abs/2601.17569v1) | Alireza Salemi, et al. | arxiv | cs.CL, cs.AI, cs.CR, cs.IR |  | 2026.01 |
 | arXiv(v2) 2026 | [Linear Personality Probing and Steering in LLMs: A Big Five Study](http://arxiv.org/abs/2512.17639v2) | Michel Frising, et al. | personalization, personality, probing, steering | cs.CL | 29 pages, 6 figures | 2026.01 |
+| arXiv(v1) 2026 | [Me-Agent: A Personalized Mobile Agent with Two-Level User Habit Learning for Enhanced Interaction](http://arxiv.org/abs/2601.20162v1) | Shuoxin Wang, et al. | arxiv | cs.CL |  | 2026.01 |
 | arXiv(v1) 2026 | [One Adapts to Any: Meta Reward Modeling for Personalized LLM Alignment](http://arxiv.org/abs/2601.18731v1) | Hongru Cai, et al. | meta reward modeling, alignment, personalization, LLM | cs.CL, cs.AI |  | 2026.01 |
+| arXiv(v1) 2026 | [Optimizing User Profiles via Contextual Bandits for Retrieval-Augmented LLM Personalization](http://arxiv.org/abs/2601.12078v1) | Linfeng Du, et al. | arxiv | cs.CL, cs.IR |  | 2026.01 |
 | arXiv(v1) 2026 | [PRISP: Privacy-Safe Few-Shot Personalization via Lightweight Adaptation](http://arxiv.org/abs/2601.06471v1) | Junho Park, et al. | few-shot, privacy-safe, lightweight adaptation, personalization, LLM | cs.CL, cs.AI, cs.LG | 16 pages, 9 figures | 2026.01 |
 | arXiv(v1) 2026 | [PersonaDual: Balancing Personalization and Objectivity via Adaptive Reasoning](http://arxiv.org/abs/2601.08679v1) | Xiaoyou Liu, et al. | personalization, persona, reasoning, LLM | cs.AI |  | 2026.01 |
 | arXiv(v1) 2026 | [SPRInG: Continual LLM Personalization via Selective Parametric Adaptation and Retrieval-Interpolated Generation](http://arxiv.org/abs/2601.09974v1) | Seoyeon Kim, et al. | personalization, continual, retrieval, parametric adaptation, LLM | cs.AI, cs.CL | under review, 23 pages | 2026.01 |

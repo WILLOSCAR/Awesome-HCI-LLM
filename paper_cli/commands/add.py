@@ -64,12 +64,14 @@ def add_paper(
 
     storage = PaperStorage(csv_path)
     registry = FetcherRegistry()
+    allow_duplicate = False
 
     # Check if already exists
     if storage.exists(link):
         print_warning("This paper already exists in the library")
         if not typer.confirm("Add anyway?", default=False):
             raise typer.Exit(0)
+        allow_duplicate = True
 
     # Detect source
     source_type = registry.detect_source(link)
@@ -96,6 +98,17 @@ def add_paper(
 
     if not paper:
         raise typer.Exit(1)
+
+    # Second duplicate check using normalized metadata fetched from the source.
+    # This catches cases like IEEE document URLs that resolve to a DOI link.
+    if not allow_duplicate:
+        for candidate in [paper.doi, paper.link]:
+            if candidate and storage.exists(candidate):
+                print_warning("This paper already exists in the library (matched by fetched metadata)")
+                if not typer.confirm("Add anyway?", default=False):
+                    raise typer.Exit(0)
+                allow_duplicate = True
+                break
 
     # Set topic
     paper.topic = topic

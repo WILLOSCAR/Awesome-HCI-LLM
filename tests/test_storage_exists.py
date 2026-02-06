@@ -56,7 +56,19 @@ class TestPaperStorageExists(unittest.TestCase):
         self._write_rows([])
         self.assertFalse(self.storage.exists("10.1145/3706598.3713728"))
 
+    def test_exists_matches_doi_wrapped_in_parentheses(self) -> None:
+        self._write_rows(
+            [
+                Paper(
+                    title="CAvatar",
+                    doi="10.1145/3631424",
+                    link="https://doi.org/10.1145/3631424",
+                    topic="HCI",
+                )
+            ]
+        )
+        self.assertTrue(self.storage.exists("(10.1145/3631424)"))
+
 
 if __name__ == "__main__":
     unittest.main()
-

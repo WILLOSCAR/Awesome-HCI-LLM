@@ -73,7 +73,11 @@ class PaperStorage:
             m = re.search(r"(10\.\d{4,9}/[^\s]+)", str(s), flags=re.IGNORECASE)
             if not m:
                 return None
-            return m.group(1).rstrip(".,;:").lower()
+            doi = m.group(1)
+            doi = re.split(r"[&#?]", doi, maxsplit=1)[0]
+            doi = doi.lstrip("(<[{\"'")
+            doi = doi.rstrip(".,;:)]}>\"'")
+            return doi.lower()
 
         papers = self.load_all()
 

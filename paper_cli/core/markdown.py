@@ -3,7 +3,7 @@
 import re
 import pandas as pd
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, Set
 
 from ..utils.date import date_key
 
@@ -21,6 +21,24 @@ class MarkdownGenerator:
         k = date_key(str(value))
         return (k[0] * 100 + k[1]) if k else -1
 
+    @staticmethod
+    def _extract_existing_topics(content: str) -> Set[str]:
+        """Extract all topic names from TABLE_START markers in README content."""
+        topics = set(re.findall(r"<!--\s*TABLE_START:\s*(.*?)\s*-->", content))
+        return {t.strip() for t in topics if t and t.strip()}
+
+    @staticmethod
+    def _remove_topic_section(content: str, topic: str) -> str:
+        """Remove a topic section (optional heading + table markers) from README content."""
+        start_marker = re.escape(f"<!-- TABLE_START: {topic} -->")
+        end_marker = re.escape(f"<!-- TABLE_END: {topic} -->")
+        # Remove only headings directly attached to the managed table block.
+        pattern = re.compile(
+            rf"(?:\n#+\s+{re.escape(topic)}\s*\n)?{start_marker}\n.*?{end_marker}\n?",
+            flags=re.DOTALL,
+        )
+        return pattern.sub("\n", content)
+
     def generate_tables_by_topic(self) -> Dict[str, str]:
         """
         从 CSV 生成按 topic 分组的 Markdown 表格。
@@ -34,6 +52,13 @@ class MarkdownGenerator:
         tables = {}
 
         if 'Topic' not in df.columns or df['Topic'].isnull().all():
+            return tables
+
+        # Treat blank/whitespace-only topic as missing metadata.
+        df = df.copy()
+        df['Topic'] = df['Topic'].astype(str).str.strip()
+        df = df[df['Topic'] != ""]
+        if df.empty:
             return tables
 
         for topic, group in df.groupby('Topic'):
@@ -175,6 +200,13 @@ class MarkdownGenerator:
             with open(self.readme_path, 'r', encoding='utf-8') as f:
                 content = f.read()
 
+        existing_topics = self._extract_existing_topics(content)
+        table_topics = set(tables.keys())
+
+        # Remove stale topic sections that no longer exist in CSV.
+        for stale_topic in sorted(existing_topics - table_topics):
+            content = self._remove_topic_section(content, stale_topic)
+
         for topic, table in tables.items():
             start_marker = f"<!-- TABLE_START: {topic} -->"
             end_marker = f"<!-- TABLE_END: {topic} -->"
@@ -233,6 +265,9 @@ class MarkdownGenerator:
         with open(self.readme_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
+        existing_topics = self._extract_existing_topics(content)
+        table_topics = set(tables.keys())
+
         diffs = []
         for topic, new_table in tables.items():
             start_marker = f"<!-- TABLE_START: {topic} -->"
@@ -252,6 +287,9 @@ class MarkdownGenerator:
             else:
                 new_lines = len(new_table.strip().split('\n'))
                 diffs.append(f"  {topic}: NEW ({new_lines} rows)")
+
+        for topic in sorted(existing_topics - table_topics):
+            diffs.append(f"  {topic}: REMOVED")
 
         if diffs:
             return "Changes:\n" + "\n".join(diffs)
