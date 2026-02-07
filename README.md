@@ -17,9 +17,8 @@ paper stats                               # Statistics
 
 ## Documentation
 
-- [USAGE.md](USAGE.md) - CLI reference
-- [FIELDS_GUIDE.md](FIELDS_GUIDE.md) - Field guide
-- [FORMAT_EXAMPLES.md](FORMAT_EXAMPLES.md) - Format examples
+- [USAGE.md](USAGE.md) - CLI reference (commands + field rules + formatting examples)
+- [src/README.md](src/README.md) - notes for legacy scripts
 
 ---
 

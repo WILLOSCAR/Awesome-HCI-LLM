@@ -1,16 +1,20 @@
 """Add paper command."""
 
-import typer
-from typing import Optional
+from __future__ import annotations
+
 from pathlib import Path
+from typing import Optional
+
+import typer
 from rich.console import Console
 
 from ..core.fetchers import FetcherRegistry
+from ..core.git_ops import GitOperations
+from ..core.markdown import MarkdownGenerator
 from ..core.models import Paper
 from ..core.storage import PaperStorage
-from ..core.markdown import MarkdownGenerator
-from ..core.git_ops import GitOperations
-from ..utils.display import display_paper_detail, print_success, print_error, print_warning, print_info
+from ..utils.cli_args import resolve_cli_values
+from ..utils.display import display_paper_detail, print_error, print_info, print_success, print_warning
 from ..utils.paths import repo_files
 
 console = Console()
@@ -18,7 +22,9 @@ console = Console()
 
 def prompt_manual_input(link: str, topic: str, custom_tag: Optional[str] = None) -> Paper:
     """Prompt user for manual paper input when auto-fetch fails."""
-    console.print("\n[yellow]Please enter paper details manually:[/yellow]\n")
+    console.print("
+[yellow]Please enter paper details manually:[/yellow]
+")
 
     title = typer.prompt("Title")
     authors = typer.prompt("Authors (comma-separated)", default="")
@@ -60,37 +66,67 @@ def add_paper(
     - IEEE: https://ieeexplore.ieee.org/document/xxx
     - Any DOI: https://doi.org/10.xxxx/xxx or 10.xxxx/xxx
     """
+    (
+        link,
+        topic,
+        tag,
+        note,
+        source,
+        no_sync,
+        no_git,
+        dry_run,
+        commit_msg,
+        repo_path,
+    ) = resolve_cli_values(
+        link,
+        topic,
+        tag,
+        note,
+        source,
+        no_sync,
+        no_git,
+        dry_run,
+        commit_msg,
+        repo_path,
+    )
+
+    link = str(link).strip()
+    topic = str(topic).strip()
+    if not link:
+        print_error("Paper link/ID cannot be empty")
+        raise typer.Exit(2)
+    if not topic:
+        print_error("Topic cannot be empty")
+        raise typer.Exit(2)
+
     csv_path, readme_path = repo_files(repo_path)
 
     storage = PaperStorage(csv_path)
     registry = FetcherRegistry()
     allow_duplicate = False
 
-    # Check if already exists
     if storage.exists(link):
         print_warning("This paper already exists in the library")
         if not typer.confirm("Add anyway?", default=False):
             raise typer.Exit(0)
         allow_duplicate = True
 
-    # Detect source
     source_type = registry.detect_source(link)
     print_info(f"Detected source: {source_type}")
 
-    # Try to fetch paper metadata
     paper = None
     try:
         fetcher = registry.get_fetcher(link)
-        print_info(f"Fetching paper metadata...")
+        print_info("Fetching paper metadata...")
         paper = fetcher.fetch(link, custom_tag=tag)
-    except ValueError as e:
-        print_error(f"Failed to fetch metadata: {e}")
+    except ValueError as exc:
+        print_error(f"Failed to fetch metadata: {exc}")
         if typer.confirm("Enter details manually?", default=True):
             paper = prompt_manual_input(link, topic, tag)
         else:
             raise typer.Exit(1)
-    except Exception as e:
-        print_error(f"Error: {e}")
+    except Exception as exc:  # pragma: no cover - network/service/runtime failures
+        print_error(f"Error: {exc}")
         if typer.confirm("Enter details manually?", default=True):
             paper = prompt_manual_input(link, topic, tag)
         else:
@@ -99,8 +135,6 @@ def add_paper(
     if not paper:
         raise typer.Exit(1)
 
-    # Second duplicate check using normalized metadata fetched from the source.
-    # This catches cases like IEEE document URLs that resolve to a DOI link.
     if not allow_duplicate:
         for candidate in [paper.doi, paper.link]:
             if candidate and storage.exists(candidate):
@@ -110,22 +144,17 @@ def add_paper(
                 allow_duplicate = True
                 break
 
-    # Set topic
     paper.topic = topic
 
-    # Custom tag (override if provided and not already set)
     if tag and not paper.tag:
         paper.tag = tag
 
-    # Additional notes
     if note:
         paper.additional_info = note
 
-    # Custom source
     if source:
         paper.source = source
 
-    # Display preview
     console.print()
     display_paper_detail(paper)
     console.print()
@@ -134,20 +163,23 @@ def add_paper(
         print_warning("Dry run mode - no changes made")
         raise typer.Exit(0)
 
-    # Add to CSV
     storage.add_paper(paper)
     print_success("Paper added to CSV")
 
-    # Update README
     if not no_sync:
-        md_gen = MarkdownGenerator(csv_path, readme_path)
-        md_gen.update_readme()
+        try:
+            md_gen = MarkdownGenerator(csv_path, readme_path)
+            md_gen.update_readme()
+        except Exception as exc:  # pragma: no cover - runtime I/O protection
+            print_error(f"Failed to update README.md: {exc}")
+            raise typer.Exit(1)
         print_success("README.md updated")
 
-    # Git operations
     if not no_git and not no_sync:
         git = GitOperations(repo_path)
-        msg = commit_msg or f"Add paper: {paper.title[:50]}..."
+        short_title = paper.title[:50]
+        default_msg = f"Add paper: {short_title}{'...' if len(paper.title) > 50 else ''}"
+        msg = commit_msg or default_msg
         files = ["papers.csv", "README.md"]
 
         print_info("Committing and pushing...")

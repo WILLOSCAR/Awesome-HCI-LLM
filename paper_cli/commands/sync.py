@@ -1,12 +1,16 @@
 """Sync command - update README and push to git."""
 
-import typer
-from typing import Optional
-from pathlib import Path
+from __future__ import annotations
 
-from ..core.markdown import MarkdownGenerator
+from pathlib import Path
+from typing import Optional
+
+import typer
+
 from ..core.git_ops import GitOperations
-from ..utils.display import print_success, print_error, print_warning, print_info
+from ..core.markdown import MarkdownGenerator
+from ..utils.cli_args import resolve_cli_values
+from ..utils.display import print_error, print_info, print_success, print_warning
 from ..utils.paths import repo_files
 
 
@@ -17,28 +21,42 @@ def sync_readme(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """Sync README with CSV and optionally push to git."""
+    readme_only, no_push, commit_msg, repo_path = resolve_cli_values(
+        readme_only, no_push, commit_msg, repo_path
+    )
+
     csv_path, readme_path = repo_files(repo_path)
 
-    # 更新 README
+    if not csv_path.exists():
+        print_error(f"papers.csv not found: {csv_path}")
+        raise typer.Exit(1)
+
     print_info("Updating README.md...")
     md_gen = MarkdownGenerator(csv_path, readme_path)
 
-    # 先显示差异
-    diff_text = md_gen.get_diff()
+    try:
+        diff_text = md_gen.get_diff()
+    except Exception as exc:  # pragma: no cover - defensive runtime protection
+        print_error(f"Failed to compute README diff: {exc}")
+        raise typer.Exit(1)
+
     if "No changes" in diff_text:
         print_warning("No changes to sync")
         return
 
     print_info(diff_text)
 
-    # 执行更新
-    md_gen.update_readme()
+    try:
+        md_gen.update_readme()
+    except Exception as exc:  # pragma: no cover - defensive runtime protection
+        print_error(f"Failed to update README.md: {exc}")
+        raise typer.Exit(1)
+
     print_success("README.md updated")
 
     if readme_only:
         return
 
-    # Git 操作
     git = GitOperations(repo_path)
 
     if not git.is_git_repo():
@@ -50,12 +68,13 @@ def sync_readme(
 
     print_info("Staging files...")
     if not git.add_files(files):
-        print_error("Failed to stage files")
+        print_error(f"Failed to stage files: {git.last_error or 'unknown git error'}")
         return
 
     print_info("Committing...")
     if not git.commit(msg):
-        print_warning("Nothing to commit")
+        detail = git.last_error or "nothing to commit"
+        print_warning(f"Commit skipped: {detail}")
         return
 
     print_success("Changes committed")
@@ -65,6 +84,6 @@ def sync_readme(
         if git.push():
             print_success("Pushed to remote")
         else:
-            print_error("Failed to push")
+            print_error(f"Failed to push: {git.last_error or 'unknown git error'}")
     else:
         print_info("Skipping push (--no-push)")

@@ -1,11 +1,15 @@
 """Stats command - show library statistics."""
 
-import typer
+from __future__ import annotations
+
 from pathlib import Path
 
+import typer
+
 from ..core.storage import PaperStorage
-from ..utils.display import display_stats
+from ..utils.cli_args import resolve_cli_value
 from ..utils.date import date_key
+from ..utils.display import display_stats
 from ..utils.paths import papers_csv_path
 
 
@@ -13,6 +17,8 @@ def show_stats(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """Show paper library statistics."""
+    repo_path = resolve_cli_value(repo_path)
+
     csv_path = papers_csv_path(repo_path)
     storage = PaperStorage(csv_path)
 
@@ -21,7 +27,6 @@ def show_stats(
     topics = storage.get_topics()
     tags = storage.get_all_tags()
 
-    # 计算日期范围
     parsed_dates = [date_key(p.date) for p in papers]
     valid_dates = [d for d in parsed_dates if d]
     if valid_dates:

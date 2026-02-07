@@ -1,12 +1,16 @@
 """List papers command."""
 
-import typer
-from typing import Optional
+from __future__ import annotations
+
 from pathlib import Path
+from typing import Optional
+
+import typer
 
 from ..core.storage import PaperStorage
-from ..utils.display import display_papers_table, print_info
+from ..utils.cli_args import resolve_cli_values
 from ..utils.date import date_key
+from ..utils.display import display_papers_table, print_error, print_info
 from ..utils.paths import papers_csv_path
 
 
@@ -18,10 +22,17 @@ def list_papers(
     repo_path: Path = typer.Option(Path("."), "--repo", help="Repository path"),
 ):
     """List papers in the library."""
+    topic, limit, recent, show_all, repo_path = resolve_cli_values(
+        topic, limit, recent, show_all, repo_path
+    )
+
+    if limit < 0:
+        print_error("--limit must be >= 0")
+        raise typer.Exit(2)
+
     csv_path = papers_csv_path(repo_path)
     storage = PaperStorage(csv_path)
 
-    # 加载论文
     if topic:
         papers = storage.search(topic=topic)
         title = f"Papers in '{topic}' ({len(papers)} total)"
@@ -29,12 +40,9 @@ def list_papers(
         papers = storage.load_all()
         title = f"All Papers ({len(papers)} total)"
 
-    # 按日期排序
     if recent:
-        # Put invalid/missing dates last.
         papers = sorted(papers, key=lambda p: date_key(p.date) or (-1, -1), reverse=True)
 
-    # 限制结果数量
     if limit > 0 and len(papers) > limit:
         print_info(f"Showing {limit} papers (use --limit 0 for all)")
         papers = papers[:limit]

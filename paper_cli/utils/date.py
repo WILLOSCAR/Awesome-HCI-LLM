@@ -12,6 +12,7 @@ from typing import Optional, Tuple
 
 
 _YYYY_MM_RE = re.compile(r"(20\d{2})\.(\d{2})")
+_STRICT_YYYY_MM_RE = re.compile(r"^20\d{2}\.(0[1-9]|1[0-2])$")
 
 
 def extract_yyyymm(value: str) -> Optional[str]:
@@ -34,6 +35,13 @@ def extract_yyyymm(value: str) -> Optional[str]:
     return f"{year:04d}.{month:02d}"
 
 
+def is_strict_yyyymm(value: str) -> bool:
+    """Return True when input exactly matches YYYY.MM with a valid month."""
+    if not value:
+        return False
+    return bool(_STRICT_YYYY_MM_RE.fullmatch(str(value).strip()))
+
+
 def date_key(value: str) -> Optional[Tuple[int, int]]:
     """Return (year, month) for comparisons/sorting, or None if invalid."""
     yyyymm = extract_yyyymm(value)
@@ -41,4 +49,3 @@ def date_key(value: str) -> Optional[Tuple[int, int]]:
         return None
     year_s, month_s = yyyymm.split(".")
     return int(year_s), int(month_s)
-
