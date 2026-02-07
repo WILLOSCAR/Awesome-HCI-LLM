@@ -22,9 +22,7 @@ console = Console()
 
 def prompt_manual_input(link: str, topic: str, custom_tag: Optional[str] = None) -> Paper:
     """Prompt user for manual paper input when auto-fetch fails."""
-    console.print("
-[yellow]Please enter paper details manually:[/yellow]
-")
+    console.print("\n[yellow]Please enter paper details manually:[/yellow]\n")
 
     title = typer.prompt("Title")
     authors = typer.prompt("Authors (comma-separated)", default="")

@@ -9,7 +9,7 @@ A curated collection of research papers on **HCI**, **LLM**, **MLLM**, **Agent**
 ## Quick Start
 
 ```bash
-pip install -e .                          # Install CLI
+python -m pip install -e .                # Install CLI
 paper add 2312.00752 LLM -t "llm, mamba"  # Add paper
 paper search transformer -t IMU           # Search
 paper stats                               # Statistics
@@ -17,7 +17,7 @@ paper stats                               # Statistics
 
 ## Documentation
 
-- [USAGE.md](USAGE.md) - CLI reference (commands + field rules + formatting examples)
+- [USAGE.md](USAGE.md) - CLI install + command reference
 - [src/README.md](src/README.md) - notes for legacy scripts
 
 ---

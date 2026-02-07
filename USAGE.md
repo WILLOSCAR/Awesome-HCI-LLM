@@ -1,13 +1,40 @@
 # Paper CLI Usage
 
-This document focuses on `paper` CLI usage only.
+This document focuses on practical `paper` CLI usage: install, verify, and daily commands.
 
-## Install
+## Requirements
+
+- Python 3.9+
+- Run commands in the repository root (where `papers.csv` and `README.md` live)
+
+## Install CLI
+
+### Option A (recommended for contributors)
 
 ```bash
 cd /path/to/Awesome-HCI-LLM
-pip install -e .
+python -m pip install -e .
 ```
+
+### Option B (no install, direct module run)
+
+```bash
+python -m paper_cli --help
+```
+
+## Verify Installation
+
+```bash
+paper --help
+```
+
+If `paper` is not found, use:
+
+```bash
+python -m paper_cli --help
+```
+
+---
 
 ## Quick Start
 
@@ -81,6 +108,7 @@ Common options:
 - `--topic TEXT`
 - `--from YYYY.MM`
 - `--to YYYY.MM`
+- `--recent`: sort by date, newest first
 - `-l, --limit INTEGER` (`0` means all)
 - `--all`: show all fields
 - `--repo PATH`
@@ -91,7 +119,7 @@ Examples:
 paper search transformer
 paper search --tag IMU --topic HCI
 paper search --author Wang --from 2024.01 --to 2024.12
-paper s memory -l 50
+paper s memory --recent -l 50
 ```
 
 ## `paper list`
