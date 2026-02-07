@@ -1,24 +1,97 @@
 """CSV storage layer for paper management."""
 
+from __future__ import annotations
+
 import csv
-import pandas as pd
-from pathlib import Path
-from typing import List, Optional, Dict
+import re
 from collections import Counter
+from pathlib import Path
+from typing import Dict, List, Optional
+from urllib.parse import urlsplit, urlunsplit
+
+import pandas as pd
+
 from .models import Paper
 from ..utils.date import date_key
+
+
+_ARXIV_ID_RE = re.compile(r"(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
+_ARXIV_BARE_RE = re.compile(r"^\d{4}\.\d{4,5}(?:v\d+)?$", re.IGNORECASE)
+_DOI_RE = re.compile(r"(10\.\d{4,9}/[^\s]+)", re.IGNORECASE)
 
 
 class PaperStorage:
     """CSV 存储管理，负责论文数据的读写和查询。"""
 
     FIELDNAMES = [
-        'Source', 'Title', 'Authors', 'DOI', 'Journal_Ref',
-        'Link', 'Tag', 'Subjects', 'Additional_Info', 'Date', 'Topic'
+        "Source",
+        "Title",
+        "Authors",
+        "DOI",
+        "Journal_Ref",
+        "Link",
+        "Tag",
+        "Subjects",
+        "Additional_Info",
+        "Date",
+        "Topic",
     ]
 
     def __init__(self, csv_path: Path):
         self.csv_path = Path(csv_path)
+
+    @staticmethod
+    def _extract_arxiv_id(value: str) -> Optional[str]:
+        """Extract canonical arXiv id (without version) from an arXiv-like input."""
+        if not value:
+            return None
+
+        raw = str(value).strip()
+        lowered = raw.lower()
+        looks_like_arxiv = (
+            "arxiv.org" in lowered
+            or lowered.startswith("arxiv:")
+            or bool(_ARXIV_BARE_RE.fullmatch(raw))
+        )
+        if not looks_like_arxiv:
+            return None
+
+        match = _ARXIV_ID_RE.search(raw)
+        return match.group(1) if match else None
+
+    @staticmethod
+    def _extract_doi(value: str) -> Optional[str]:
+        """Extract and normalize DOI token from free text/URLs."""
+        if not value:
+            return None
+
+        match = _DOI_RE.search(str(value))
+        if not match:
+            return None
+
+        doi = match.group(1)
+        doi = re.split(r"[&#?]", doi, maxsplit=1)[0]
+        doi = doi.lstrip("(<[{\"'")
+        doi = doi.rstrip(".,;:)]}>\"'")
+        return doi.lower()
+
+    @staticmethod
+    def _normalize_link(value: str) -> str:
+        """Normalize links for safer duplicate checks without changing semantics."""
+        if not value:
+            return ""
+
+        raw = str(value).strip()
+        if not raw:
+            return ""
+
+        parsed = urlsplit(raw)
+        if not (parsed.scheme and parsed.netloc):
+            return raw
+
+        # Normalize only scheme/host case and trailing slash in path.
+        path = parsed.path.rstrip("/")
+        return urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), path, parsed.query, parsed.fragment))
 
     def load_all(self) -> List[Paper]:
         """加载所有论文。"""
@@ -34,7 +107,7 @@ class PaperStorage:
         """添加单篇论文到 CSV。"""
         file_exists = self.csv_path.exists()
 
-        with open(self.csv_path, 'a', newline='', encoding='utf-8') as f:
+        with open(self.csv_path, "a", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=self.FIELDNAMES, quoting=csv.QUOTE_ALL)
             if not file_exists:
                 writer.writeheader()
@@ -46,61 +119,48 @@ class PaperStorage:
         Notes:
             - arXiv IDs are only extracted/compared when the input looks like an arXiv link/ID.
               (Avoid false positives on ACM DOIs like 10.1145/3706598.3713728.)
-            - DOIs are compared against stored DOI fields to avoid duplicates across different URLs.
+            - DOIs are compared against stored DOI fields and DOI-style links.
+            - Fallback link matching uses normalized links (trim + URL host/scheme normalization).
         """
         if not link:
             return False
 
-        import re
-
-        def extract_arxiv_id(s: str) -> Optional[str]:
-            if not s:
-                return None
-            s_stripped = str(s).strip()
-            s_lower = s_stripped.lower()
-            if (
-                "arxiv.org" in s_lower
-                or s_lower.startswith("arxiv:")
-                or re.fullmatch(r"\d{4}\.\d{4,5}(v\d+)?", s_stripped)
-            ):
-                m = re.search(r"(\d{4}\.\d{4,5})", s_stripped)
-                return m.group(1) if m else None
-            return None
-
-        def extract_doi(s: str) -> Optional[str]:
-            if not s:
-                return None
-            m = re.search(r"(10\.\d{4,9}/[^\s]+)", str(s), flags=re.IGNORECASE)
-            if not m:
-                return None
-            doi = m.group(1)
-            doi = re.split(r"[&#?]", doi, maxsplit=1)[0]
-            doi = doi.lstrip("(<[{\"'")
-            doi = doi.rstrip(".,;:)]}>\"'")
-            return doi.lower()
-
         papers = self.load_all()
+        if not papers:
+            return False
 
-        # Prefer DOI-based matching when possible.
-        link_doi = extract_doi(link)
-        if link_doi:
-            for paper in papers:
-                if paper.doi and paper.doi.strip().lower() == link_doi:
-                    return True
-                paper_link_doi = extract_doi(paper.link)
-                if paper_link_doi and paper_link_doi == link_doi:
-                    return True
+        input_doi = self._extract_doi(link)
+        input_arxiv_id = self._extract_arxiv_id(link)
+        normalized_input_link = self._normalize_link(link)
 
-        # arXiv-based matching (only when the input is arXiv).
-        link_arxiv_id = extract_arxiv_id(link)
-        if link_arxiv_id:
-            for paper in papers:
-                paper_arxiv_id = extract_arxiv_id(paper.link)
-                if paper_arxiv_id and paper_arxiv_id == link_arxiv_id:
-                    return True
+        stored_dois: set[str] = set()
+        stored_arxiv_ids: set[str] = set()
+        stored_links: set[str] = set()
 
-        # Fallback: exact link match.
-        return any(paper.link == link for paper in papers)
+        for paper in papers:
+            if paper.doi:
+                doi = self._extract_doi(paper.doi)
+                if doi:
+                    stored_dois.add(doi)
+
+            if paper.link:
+                stored_links.add(self._normalize_link(paper.link))
+
+                link_doi = self._extract_doi(paper.link)
+                if link_doi:
+                    stored_dois.add(link_doi)
+
+                arxiv_id = self._extract_arxiv_id(paper.link)
+                if arxiv_id:
+                    stored_arxiv_ids.add(arxiv_id)
+
+        if input_doi and input_doi in stored_dois:
+            return True
+
+        if input_arxiv_id and input_arxiv_id in stored_arxiv_ids:
+            return True
+
+        return normalized_input_link in stored_links
 
     def search(
         self,
@@ -177,7 +237,7 @@ class PaperStorage:
         for paper in papers:
             if paper.tag:
                 # 分割逗号分隔的标签
-                for t in paper.tag.split(','):
+                for t in paper.tag.split(","):
                     t = t.strip()
                     if t:
                         tags[t] += 1

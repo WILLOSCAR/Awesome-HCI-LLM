@@ -69,6 +69,18 @@ class TestPaperStorageExists(unittest.TestCase):
         )
         self.assertTrue(self.storage.exists("(10.1145/3631424)"))
 
+    def test_exists_matches_normalized_non_doi_links(self) -> None:
+        self._write_rows(
+            [
+                Paper(
+                    title="Example",
+                    link="https://Example.com/paper/abc/",
+                    topic="HCI",
+                )
+            ]
+        )
+        self.assertTrue(self.storage.exists("https://example.com/paper/abc"))
+
 
 if __name__ == "__main__":
     unittest.main()

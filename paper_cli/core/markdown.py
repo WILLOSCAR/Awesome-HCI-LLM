@@ -1,9 +1,12 @@
 """Markdown table generation for README."""
 
+from __future__ import annotations
+
 import re
-import pandas as pd
 from pathlib import Path
 from typing import Dict, Optional, Set
+
+import pandas as pd
 
 from ..utils.date import date_key
 
@@ -26,6 +29,36 @@ class MarkdownGenerator:
         """Extract all topic names from TABLE_START markers in README content."""
         topics = set(re.findall(r"<!--\s*TABLE_START:\s*(.*?)\s*-->", content))
         return {t.strip() for t in topics if t and t.strip()}
+
+    @staticmethod
+    def _escape_markdown_cell(value: str) -> str:
+        """Escape markdown table-breaking characters in a cell value."""
+        if value is None:
+            return ""
+        text = str(value).replace("\r\n", "\n").replace("\r", "\n").strip()
+        text = text.replace("\n", "<br>")
+        return text.replace("|", "\\|")
+
+    @classmethod
+    def _format_linked_title(cls, title: str, link: str) -> str:
+        """Render title as markdown link while keeping table formatting stable."""
+        safe_title = cls._escape_markdown_cell(title).replace("[", "\\[").replace("]", "\\]")
+        if not link:
+            return safe_title
+        return f"[{safe_title}]({str(link).strip()})"
+
+    @staticmethod
+    def _format_authors_display(authors_full: str) -> str:
+        """Display first author and collapse the remaining list."""
+        if not authors_full:
+            return ""
+
+        authors = [a.strip() for a in str(authors_full).split(",") if a.strip()]
+        if not authors:
+            return ""
+        if len(authors) == 1:
+            return authors[0]
+        return f"{authors[0]}, et al."
 
     @staticmethod
     def _remove_topic_section(content: str, topic: str) -> str:
@@ -51,17 +84,17 @@ class MarkdownGenerator:
 
         tables = {}
 
-        if 'Topic' not in df.columns or df['Topic'].isnull().all():
+        if "Topic" not in df.columns or df["Topic"].isnull().all():
             return tables
 
         # Treat blank/whitespace-only topic as missing metadata.
         df = df.copy()
-        df['Topic'] = df['Topic'].astype(str).str.strip()
-        df = df[df['Topic'] != ""]
+        df["Topic"] = df["Topic"].astype(str).str.strip()
+        df = df[df["Topic"] != ""]
         if df.empty:
             return tables
 
-        for topic, group in df.groupby('Topic'):
+        for topic, group in df.groupby("Topic"):
             if group.empty:
                 continue
 
@@ -83,31 +116,36 @@ class MarkdownGenerator:
             md_table += "|---|---|---|---|---|---|---|\n"
 
             for _, row in group.iterrows():
-                source = row.get('Source', '')
-                title = row.get('Title', '')
-                link = row.get('Link', '')
-                authors_full = row.get('Authors', '')
-                journal_ref = row.get('Journal_Ref', '')
-                tag = row.get('Tag', '')
-                subjects = row.get('Subjects', '')
-                additional_info = row.get('Additional_Info', '')
-                date = row.get('Date', '')
+                source = row.get("Source", "")
+                title = row.get("Title", "")
+                link = row.get("Link", "")
+                authors_full = row.get("Authors", "")
+                journal_ref = row.get("Journal_Ref", "")
+                tag = row.get("Tag", "")
+                subjects = row.get("Subjects", "")
+                additional_info = row.get("Additional_Info", "")
+                date = row.get("Date", "")
 
                 # 格式化 Source 列：优先显示 arXiv 信息
                 source = self._format_source_column(source, link, journal_ref)
 
                 # 格式化作者显示
-                if authors_full:
-                    first_author = authors_full.split(',')[0]
-                    authors_display = f"{first_author}, et al."
-                else:
-                    authors_display = ''
+                authors_display = self._format_authors_display(authors_full)
 
                 # 带链接的标题
-                linked_title = f"[{title}]({link})" if link else title
+                linked_title = self._format_linked_title(title, link)
+
+                source = self._escape_markdown_cell(source)
+                authors_display = self._escape_markdown_cell(authors_display)
+                tag = self._escape_markdown_cell(tag)
+                subjects = self._escape_markdown_cell(subjects)
+                additional_info = self._escape_markdown_cell(additional_info)
+                date = self._escape_markdown_cell(date)
 
                 # 构建表格行
-                md_table += f"| {source} | {linked_title} | {authors_display} | {tag} | {subjects} | {additional_info} | {date} |\n"
+                md_table += (
+                    f"| {source} | {linked_title} | {authors_display} | {tag} | {subjects} | {additional_info} | {date} |\n"
+                )
 
             tables[topic] = md_table
 
@@ -134,31 +172,33 @@ class MarkdownGenerator:
         Returns:
             格式化后的 Source 字符串
         """
-        is_arxiv_link = 'arxiv.org' in link.lower()
-        is_arxiv_source = 'arxiv' in source.lower()
+        is_arxiv_link = "arxiv.org" in str(link).lower()
+        is_arxiv_source = "arxiv" in str(source).lower()
 
         # 情况1: Source 已经包含 arXiv 格式
         if is_arxiv_source:
             # 提取会议信息（优先用 Journal_Ref，否则从 Source 中查找括号内容）
-            conf_info = journal_ref.strip()
-            if not conf_info and '(' in source:
+            conf_info = str(journal_ref).strip()
+            if not conf_info and "(" in str(source):
                 # Source 可能已经包含会议信息，如 "arXiv(v1) 2024 (ICLR)"
-                return source
+                return str(source)
 
             if conf_info:
+                if conf_info in str(source):
+                    return str(source)
                 # 添加会议信息到括号中
                 return f"{source} ({conf_info})"
-            return source
+            return str(source)
 
         # 情况2: Source 是会议名，但 Link 是 arXiv
         if is_arxiv_link and not is_arxiv_source:
             # 从 Link 提取版本号
-            version = self._extract_arxiv_version(link)
+            version = self._extract_arxiv_version(str(link))
 
             # 尝试从 source 或其他地方获取年份
             # 通常会议名格式是 "CHI 2023", "ICLR 2024"
-            year_match = re.search(r'20\d{2}', source)
-            year = year_match.group(0) if year_match else ''
+            year_match = re.search(r"20\d{2}", str(source))
+            year = year_match.group(0) if year_match else ""
 
             # 构建 arXiv 格式
             arxiv_format = f"arXiv({version})"
@@ -166,12 +206,12 @@ class MarkdownGenerator:
                 arxiv_format += f" {year}"
 
             # 添加会议信息到括号中
-            return f"{arxiv_format} ({source})"
+            return f"{arxiv_format} ({source})" if source else arxiv_format
 
         # 情况3: 非 arXiv 论文，保持原有逻辑
         if journal_ref:
-            return f"{source} ({journal_ref})"
-        return source
+            return f"{source} ({journal_ref})" if source else str(journal_ref)
+        return str(source)
 
     def _extract_arxiv_version(self, link: str) -> str:
         """
@@ -184,7 +224,7 @@ class MarkdownGenerator:
             版本号字符串，如 "v1", "v2"
         """
         # 匹配版本号: https://arxiv.org/abs/2308.00352v1 或 .../pdf/2308.00352v2
-        match = re.search(r'v(\d+)(?:\.pdf)?$', link)
+        match = re.search(r"v(\d+)(?:\.pdf)?$", link)
         if match:
             return f"v{match.group(1)}"
         return "v1"  # 默认 v1
@@ -197,7 +237,7 @@ class MarkdownGenerator:
             # 如果 README 不存在，创建一个基础版本
             content = "# Paper Collection\n\n"
         else:
-            with open(self.readme_path, 'r', encoding='utf-8') as f:
+            with open(self.readme_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
         existing_topics = self._extract_existing_topics(content)
@@ -223,7 +263,7 @@ class MarkdownGenerator:
                 # 不存在标记，在文件末尾添加新 section
                 content += f"\n# {topic}\n{start_marker}\n{table}{end_marker}\n"
 
-        with open(self.readme_path, 'w', encoding='utf-8') as f:
+        with open(self.readme_path, "w", encoding="utf-8") as f:
             f.write(content)
 
     def preview_topic(self, topic: Optional[str] = None) -> str:
@@ -241,8 +281,7 @@ class MarkdownGenerator:
         if topic:
             if topic in tables:
                 return f"# {topic}\n\n{tables[topic]}"
-            else:
-                return f"Topic '{topic}' not found."
+            return f"Topic '{topic}' not found."
 
         # 预览所有
         result = []
@@ -262,7 +301,7 @@ class MarkdownGenerator:
 
         tables = self.generate_tables_by_topic()
 
-        with open(self.readme_path, 'r', encoding='utf-8') as f:
+        with open(self.readme_path, "r", encoding="utf-8") as f:
             content = f.read()
 
         existing_topics = self._extract_existing_topics(content)
@@ -281,11 +320,11 @@ class MarkdownGenerator:
                 new_table_stripped = new_table.strip()
                 if old_table != new_table_stripped:
                     # 计算行数差异
-                    old_lines = len(old_table.split('\n'))
-                    new_lines = len(new_table_stripped.split('\n'))
+                    old_lines = len(old_table.split("\n"))
+                    new_lines = len(new_table_stripped.split("\n"))
                     diffs.append(f"  {topic}: {old_lines} -> {new_lines} rows")
             else:
-                new_lines = len(new_table.strip().split('\n'))
+                new_lines = len(new_table.strip().split("\n"))
                 diffs.append(f"  {topic}: NEW ({new_lines} rows)")
 
         for topic in sorted(existing_topics - table_topics):
